@@ -6,14 +6,14 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/18 02:33:43 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/18 14:21:58 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the compiler and flags
 CC				=	cc
 CFLAGS			=	-Wall -Wextra -Werror -MMD -O3
-LDFLAGS 		=	-framework OpenGL -framework Appkit -l z
+LDFLAGS 		=	-framework OpenGL -framework Appkit
 LIBMLX			=	libmlx.dylib
 LDLIBS 			=	lib/ft_printf.a lib/get_next_line.a lib/libft.a $(LIBMLX)
 
@@ -51,7 +51,7 @@ all bonus: $(NAME)
 
 # Define the target and dependencies
 $(NAME) : $(LDLIBS) $(OBJS)
-	@$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 	@echo "\n${GREEN}> Compilation of the so_long is success 🎉${END}"
 
 $(BUILD_DIR)/$(CORE_DIR)/%.o: $(SRC_DIR)/$(CORE_DIR)/%.c

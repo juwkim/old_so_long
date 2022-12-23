@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 19:44:22 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:41:52 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:41:57 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 static int	is_collision(char c, int type)
 {

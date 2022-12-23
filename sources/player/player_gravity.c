@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:49:53 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:44:53 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:44:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Player_gravity
 void	player_gravity(t_so_long *so_long)

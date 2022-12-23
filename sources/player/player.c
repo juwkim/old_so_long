@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/15 15:40:04 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:45:37 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
-// main player function
 void	player(t_so_long *so_long)
 {
 	so_long->player.lpp.first = so_long->player.position.first;

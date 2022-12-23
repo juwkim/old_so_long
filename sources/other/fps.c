@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/23 12:02:50 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:43:12 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:43:16 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
 
 // Get timestamp in milliseconds
 long long	millitimestamp(void)

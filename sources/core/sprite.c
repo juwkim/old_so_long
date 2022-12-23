@@ -3,14 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/15 15:38:01 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:41:44 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 16:15:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "core/main.h"
+
+void	init_image(t_game *game)
+{
+	load_sprite(game, "./assets/cat/cat_", CAT_IMAGE_NUMBER, 0);
+	load_sprite(game, "./assets/coin/coin_", COIN_IMAGE_NUMBER, 1);
+	load_sprite(game, "./assets/gate/gate_", GATE_IMAGE_NUMBER, 2);
+	load_sprite(game, "./assets/life/life_", LIFE_IMAGE_NUMBER, 3);
+	load_sprite(game, "./assets/monster/monster_", MONSTER_IMAGE_NUMBER, 4);
+	load_sprite(game, "./assets/other/other_", OTHER_IMAGE_NUMBER, 5);
+}
+
+void	load_sprite(t_game *game, char *name, int sprite_number, int type)
+{
+	int			idx;
+	const int	img_size = BPX;
+	char		*idx_str;
+	char		path[100];
+	const int	name_len = ft_strlen(name);
+
+	ft_memcpy(path, name, name_len);
+	idx = -1;
+	while (++idx < sprite_number)
+	{
+		idx_str = ft_itoa(idx);
+		make_path(idx);
+		game->image[type][idx] = mlx_png_file_to_image(game->mlx, \
+									path, &img_size, &img_size);
+	}
+}
 
 static char	*path_sprite(char *sprite_name, int nb)
 {
@@ -19,13 +48,6 @@ static char	*path_sprite(char *sprite_name, int nb)
 	char	*str2;
 
 	nbr = ft_itoa(nb);
-	str1 = ft_strjoin("./assets/", sprite_name);
-	str2 = ft_strjoin(str1, "/");
-	free(str1);
-	str1 = ft_strjoin(str2, sprite_name);
-	free(str2);
-	str2 = ft_strjoin(str1, "_");
-	free(str1);
 	str1 = ft_strjoin(str2, nbr);
 	free(str2);
 	str2 = ft_strjoin(str1, ".png");
@@ -34,51 +56,28 @@ static char	*path_sprite(char *sprite_name, int nb)
 	return (str2);
 }
 
-static void	load_sprite_type(int i, char *p, int sprite_type,
-t_so_long *so_long)
+
+void	load_sprite(t_game *game, char *name, int sprite_number, int type)
 {
-	int		d;
+	int			fd;
+	int			idx;
+	const int	img_size = BPX;
+	char		*idx_str;
+	char		path[100];
+	const int	name_len = ft_strlen(name);
 
-	d = BPX;
-	if (sprite_type == 1)
-		so_long->ps[i] = mlx_png_file_to_image(so_long->mlx, p, &d, &d);
-	else if (sprite_type == 2)
-		so_long->ms[i] = mlx_png_file_to_image(so_long->mlx, p, &d, &d);
-	else if (sprite_type == 3)
-		so_long->gs[i] = mlx_png_file_to_image(so_long->mlx, p, &d, &d);
-	else if (sprite_type == 4)
-		so_long->cs[i] = mlx_png_file_to_image(so_long->mlx, p, &d, &d);
-	else if (sprite_type == 5)
-		so_long->os[i] = mlx_png_file_to_image(so_long->mlx, p, &d, &d);
-}
-
-static void	load_sprite(char *sprite_name, int nb_sprite, int sprite_type, \
-t_so_long *so_long)
-{
-	int		i;
-	char	*p;
-	int		fd;
-
-	i = 0;
-	while (i < nb_sprite)
+	ft_memcpy(path, name, name_len);
+	idx = -1;
+	while (++idx < sprite_number)
 	{
-		p = path_sprite(sprite_name, i);
-		fd = open(p, O_RDONLY);
+		idx_str = ft_itoa(idx);
+
+		fd = open(path, O_RDONLY);
 		if (fd < 0)
 			error(3);
 		close(fd);
-		load_sprite_type(i, p, sprite_type, so_long);
-		free(p);
-		++i;
+		free(idx_str);
+		game[type][idx] = mlx_png_file_to_image(game->mlx, p, &d, &d);
+		load_sprite_type(i, p, sprite_type, game);
 	}
-}
-
-// All sprites initialization
-void	init_sprites(t_so_long *so_long)
-{
-	load_sprite("other", 7, 5, so_long);
-	load_sprite("cat", 54, 1, so_long);
-	load_sprite("monster", 22, 2, so_long);
-	load_sprite("gate", 4, 3, so_long);
-	load_sprite("coin", 5, 4, so_long);
 }

@@ -5,52 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/23 12:45:27 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 15:28:57 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "core/main.h"
 
+int	main(int argc, char *argv[])
+{
+	t_game	game;
+
+	init_game(&game);
+	init_map(&game, argc, argv);
+	init_sprites(&game);
+	init_player(&game);
+	init_camera(&game);
+	analyse_monster(&game);
+	mlx_hook(game.window, 17, 1L << 0, close_hook, &game);
+	mlx_hook(game.window, 2, 0, keydown_hook, &game);
+	mlx_key_hook(game.window, keyup_hook, &game);
+	mlx_loop_hook(game.mlx, game_loop, &game);
+	mlx_loop(game.mlx);
+	exit(EXIT_SUCCESS);
+}
 
 // General loop of the game which will be executed at best every 15ms
-static int	game_loop(t_so_long *so_long)
+static int	game_loop(t_game *game)
 {
 	long long	now;
 	long long	diff_millisecs;
 
 	now = millitimestamp();
-	diff_millisecs = now - so_long->lm;
+	diff_millisecs = now - game->time_stamp;
 	if (diff_millisecs > 15)
 	{
-		fps(so_long);
-		mlx_clear_window(so_long->mlx, so_long->window);
-		player_position(so_long);
-		background(so_long);
-		wall(so_long);
-		item(so_long);
-		gate(so_long);
-		monster(so_long);
-		player(so_long);
-		show_hud(so_long);
+		fps(game);
+		mlx_clear_window(game->mlx, game->window);
+		player_position(game);
+		background(game);
+		wall(game);
+		item(game);
+		gate(game);
+		monster(game);
+		player(game);
+		show_hud(game);
 	}
 	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_so_long	so_long;
-
-	init_so_long(&so_long);
-	init_map(argc, argv, &so_long);
-	init_sprites(&so_long);
-	init_player(&so_long);
-	init_camera(&so_long);
-	analyse_monster(&so_long);
-	mlx_hook(so_long.window, 17, 1L << 0, close_hook, &so_long);
-	mlx_hook(so_long.window, 2, 0, keydown_hook, &so_long);
-	mlx_key_hook(so_long.window, keyup_hook, &so_long);
-	mlx_loop_hook(so_long.mlx, game_loop, &so_long);
-	mlx_loop(so_long.mlx);
-	exit(EXIT_SUCCESS);
 }

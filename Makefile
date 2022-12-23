@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/23 12:47:45 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/23 13:45:47 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ TOOLS_DIR		=	tools
 
 # Define the source files
 SRCS_CORE		=	$(addprefix $(CORE_DIR)/, init.c main.c draw.c error.c hook.c sprite.c)
-SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite1.c)
+SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite.c)
 SRCS_OTHER		=	$(addprefix $(OTHER_DIR)/, wall.c background.c item.c gate.c fps.c hud.c)
 SRCS_PARSING	=	$(addprefix $(PARSING_DIR)/, parsing1.c parsing2.c)
 SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player.c player_position.c player_action.c player_distance.c player_mouvement.c player_gravity.c player_draw.c player_count_movement.c player_sprite1.c player_sprite2.c)
@@ -46,15 +46,14 @@ DEPS			=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(SRCS_TOTAL))
 # Define the target
 NAME			=	so_long
 
-all bonus: $(NAME)
+all: $(NAME)
+bonus: all
 # Define the target and dependencies
 $(NAME) : $(LDLIBS) $(OBJS)
-	$(info $@)
 	@$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
-	@echo "\n${GREEN}> Compilation of the so_long is success 🎉${END}"
+	@echo "${GREEN}> Compilation of the so_long is success 🎉${END}"
 
 $(BUILD_DIR)/$(CORE_DIR)/%.o: $(SRC_DIR)/$(CORE_DIR)/%.c
-	$(info $@)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
@@ -96,7 +95,7 @@ re: fclean
 $(LDLIBS) :
 	@make -C ./lib
 
-.PHONY:	all bonus clean fclean re build lib 
+.PHONY:	all bonus clean fclean re
 
 # minimal color codes
 END				=	$'\x1b[0m

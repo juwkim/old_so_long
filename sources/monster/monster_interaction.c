@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:42:19 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:42:05 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:42:09 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 static void	monster_player_action(t_monster *m, t_so_long *so_long)
 {

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:49:29 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:44:42 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Return the distance between the player and the nearest obstacle on the right
 int	get_prwc(t_so_long *so_long)

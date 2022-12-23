@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:39:38 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:44:45 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:44:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Draw the player block on the screen
 void	player_draw(t_so_long *so_long)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: f██████ <f██████@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 11:45:53 by f██████           #+#    #+#             */
-/*   Updated: 2022/09/08 10:48:45 by f██████          ###   ########lyon.fr   */
+/*   Created: 2022/12/23 13:41:24 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:41:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 int	keydown_hook(int keycode, t_so_long *so_long)
 {

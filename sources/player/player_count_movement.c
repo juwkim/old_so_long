@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:25:02 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:44:20 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:44:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Count player movement
 void	player_count_movement(t_so_long *so_long)

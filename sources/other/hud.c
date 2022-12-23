@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:19:17 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:43:27 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:43:31 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 void	show_life(t_so_long *so_long)
 {

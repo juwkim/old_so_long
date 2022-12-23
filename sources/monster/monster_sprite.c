@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   monster_sprite1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: f██████ <f██████@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/09/08 10:48:45 by f██████          ###   ########lyon.fr   */
+/*   Created: 2022/12/23 13:42:37 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:42:41 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Return death move sprite
 static int	monster_death_sprite(t_monster *m)

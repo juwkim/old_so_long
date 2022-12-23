@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 17:29:22 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:45:15 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 13:45:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "game.h"
 
 // Return player failling sprite
 int	player_failling_sprite(int *last_anim, t_so_long *so_long)

@@ -13,6 +13,8 @@
 #ifndef ERROR_H
 # define ERROR_H
 
+# include <stdlib.h>
+
 void	error(int error_n);
 
 #endif

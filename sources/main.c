@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 16:40:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:58:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 	init_image(&game);
 	init_player(&game);
 	init_camera(&game);
-	analyse_monster(&game);
+	create_monster(&game);
 	mlx_hook(game.window, 17, 1L << 0, close_hook, &game);
 	mlx_hook(game.window, 2, 0, keydown_hook, &game);
 	mlx_key_hook(game.window, keyup_hook, &game);

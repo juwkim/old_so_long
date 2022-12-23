@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   hook.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 14:06:11 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:18:32 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 17:16:19 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/23 17:17:56 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#ifndef HOOK_H
+# define HOOK_H
 
 # include "main.h"
 
-void	init_game(t_game *game);
-int		init_map(t_game *game, int argc, char *argv[]);
-void	init_image(t_game *game);
-int		init_player(t_game *game);
-void	init_camera(t_game *game);
+int	keydown_hook(int keycode, t_game *game);
+int	keyup_hook(int keycode, t_game *game);
+int	close_hook(int keycode, t_game *game);
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 19:30:13 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 11:40:01 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
-#include "error.h"
+#include "so_long.h"
+#include "core/error.h"
 
 void	error(int error_n)
 {

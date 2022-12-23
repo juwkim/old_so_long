@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 18:44:29 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/18 02:29:33 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 11:53:53 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-# include "../lib/ft_printf/ft_printf.h"
-# include "../lib/get_next_line/get_next_line.h"
-# include "../lib/libft/libft.h"
-# include "../lib/minilibx-mms/mlx.h"
-# include "../sources/core/error.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include "libft.h"
+# include "mlx.h"
+# include "core/error.h"
 
 # define WINDOW_TITLE "so_long"
-# define WINDOW_WIDTH 1300
-# define WINDOW_HEIGHT 700
+# define WINDOW_WIDTH 1366
+# define WINDOW_HEIGHT 768
 # define NB_LIFE 7
 # define HUD_LM 920
 

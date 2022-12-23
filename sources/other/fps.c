@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fps.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: f██████ <f██████@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/09/08 10:48:45 by f██████          ###   ########lyon.fr   */
+/*   Updated: 2022/12/23 12:02:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 // Get timestamp in milliseconds
 long long	millitimestamp(void)
@@ -23,6 +23,7 @@ long long	millitimestamp(void)
 	return (microtime);
 }
 
+#include <stdio.h>
 // Show FPS in the window
 void	show_fps(t_so_long *so_long)
 {

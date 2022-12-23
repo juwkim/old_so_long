@@ -1,10 +1,5 @@
 build/monster/monster_interaction.o: \
   sources/monster/monster_interaction.c \
-  sources/monster/../../includes/so_long.h \
-  sources/monster/../../includes/../lib/ft_printf/ft_printf.h \
-  sources/monster/../../includes/../lib/ft_printf/../libft/libft.h \
-  sources/monster/../../includes/../lib/get_next_line/get_next_line.h \
-  sources/monster/../../includes/../lib/get_next_line/../libft/libft.h \
-  sources/monster/../../includes/../lib/libft/libft.h \
-  sources/monster/../../includes/../lib/minilibx-mms/mlx.h \
-  sources/monster/../../includes/../sources/core/error.h
+  sources/monster/../../includes/so_long.h includes/ft_printf.h \
+  includes/libft.h includes/get_next_line.h includes/mlx.h \
+  includes/core/error.h

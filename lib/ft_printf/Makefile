@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 05:18:16 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/16 20:55:26 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/23 12:09:35 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ ARFLAGS		= rsc
 SRCS		= $(wildcard *.c)
 OBJS		= $(SRCS:.c=.o)
 DEPS		= $(SRCS:.c=.d)
+INC_DIR		= -I ../../includes
+
 -include $(DEPS)
 
 NAME 		= ft_printf.a
@@ -27,7 +29,7 @@ $(NAME)	: 	$(OBJS)
 	@echo "\n${GREEN}> Compilation of the ft_printf is success 🎉${END}"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $^
+	@$(CC) $(CFLAGS) $(INC_DIR) -c -o $@ $^
 	@echo -n .
 
 clean	:

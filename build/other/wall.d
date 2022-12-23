@@ -1,9 +1,4 @@
 build/other/wall.o: sources/other/wall.c \
-  sources/other/../../includes/so_long.h \
-  sources/other/../../includes/../lib/ft_printf/ft_printf.h \
-  sources/other/../../includes/../lib/ft_printf/../libft/libft.h \
-  sources/other/../../includes/../lib/get_next_line/get_next_line.h \
-  sources/other/../../includes/../lib/get_next_line/../libft/libft.h \
-  sources/other/../../includes/../lib/libft/libft.h \
-  sources/other/../../includes/../lib/minilibx-mms/mlx.h \
-  sources/other/../../includes/../sources/core/error.h
+  sources/other/../../includes/so_long.h includes/ft_printf.h \
+  includes/libft.h includes/get_next_line.h includes/mlx.h \
+  includes/core/error.h

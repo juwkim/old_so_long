@@ -6,11 +6,12 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:27:36 by f██████           #+#    #+#             */
-/*   Updated: 2022/12/16 22:14:07 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 12:45:27 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
+
 
 // General loop of the game which will be executed at best every 15ms
 static int	game_loop(t_so_long *so_long)

@@ -6,11 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:24 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:41:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:47:30 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "core/hook.h"
 
 int	keydown_hook(int keycode, t_so_long *so_long)
 {

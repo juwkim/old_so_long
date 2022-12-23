@@ -6,11 +6,10 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:11 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:41:18 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:47:16 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
 #include "core/error.h"
 
 void	error(int error_n)

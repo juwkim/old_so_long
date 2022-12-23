@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 15:25:01 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:43:20 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ int	check_map(t_game *game)
 			idx = ft_strin(game->map[i][j], "PCE10");
 			if (idx == -1)
 				return (0);
+			if (game->map[i][j] == 'P')
+			{
+				game->player.position.first = j * BPX;
+				game->player.position.second = i * BPX;
+			}
 			elements[idx]++;
 		}
 	}

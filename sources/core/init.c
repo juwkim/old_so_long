@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 15:26:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:47:45 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,41 +41,31 @@ int	init_map(t_game *game, int argc, char *argv[])
 	return (1);
 }
 
-// Player initialization
+void	init_image(t_game *game)
+{
+	load_sprite(game, "./assets/cat/cat_", CAT_IMAGE_NUMBER, 0);
+	load_sprite(game, "./assets/coin/coin_", COIN_IMAGE_NUMBER, 1);
+	load_sprite(game, "./assets/gate/gate_", GATE_IMAGE_NUMBER, 2);
+	load_sprite(game, "./assets/life/life_", LIFE_IMAGE_NUMBER, 3);
+	load_sprite(game, "./assets/monster/monster_", MONSTER_IMAGE_NUMBER, 4);
+	load_sprite(game, "./assets/other/other_", OTHER_IMAGE_NUMBER, 5);
+}
+
 int	init_player(t_game *game)
 {
-	int		i;
-	int		j;
-
 	game->player.jump = 0;
 	game->player.tick_life = 50;
 	game->player.life_number = NB_LIFE;
 	game->player.direction = 1;
-	i = 0;
-	while (i < game->game_height)
-	{
-		j = 0;
-		while (j < game->game_width)
-		{
-			if (game->map[i][j] == 'P')
-			{
-				game->player.position.first = j * BPX;
-				game->player.position.second = i * BPX - 1;
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
 	return (0);
 }
 
 void	init_camera(t_game *game)
 {
-	game->game_offset.first = 0;
-	game->game_offset.second = 0;
-	if (game->game_width < 15)
-		game->game_offset.first = (14 - game->game_width) / 2 * BPX + 30;
-	if (game->game_height < 8)
-		game->game_offset.second = (7 - game->game_height) / 2 * BPX + 35;
+	game->offset_game.first = 0;
+	game->offset_game.second = 0;
+	if (game->width < 15)
+		game->offset_game.first = (14 - game->width) / 2 * BPX;
+	if (game->height < 8)
+		game->offset_game.second = (7 - game->height) / 2 * BPX;
 }

@@ -6,11 +6,31 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:42:52 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:42:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:48:12 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "monster/monster.h"
+
+// Analyzes the map and creates as many monsters as there are 'M' in the map
+void	analyse_monster(t_so_long *so_long)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < so_long->game_height)
+	{
+		j = 0;
+		while (j < so_long->game_width)
+		{
+			if (so_long->map[i][j] == 'M')
+				create_monster(i, j, so_long);
+			j++;
+		}
+		i++;
+	}
+}
 
 // Create monsters in a linked list
 void	create_monster(int i, int j, t_so_long *so_long)
@@ -33,26 +53,6 @@ void	create_monster(int i, int j, t_so_long *so_long)
 		so_long->monsters = ft_lstnew(m);
 	else
 		ft_lstadd_front(&so_long->monsters, ft_lstnew(m));
-}
-
-// Analyzes the map and creates as many monsters as there are 'M' in the map
-void	analyse_monster(t_so_long *so_long)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < so_long->game_height)
-	{
-		j = 0;
-		while (j < so_long->game_width)
-		{
-			if (so_long->map[i][j] == 'M')
-				create_monster(i, j, so_long);
-			j++;
-		}
-		i++;
-	}
 }
 
 // Displays a monster block

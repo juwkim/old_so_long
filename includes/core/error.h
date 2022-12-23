@@ -14,4 +14,5 @@
 # define ERROR_H
 
 void	error(int error_n);
+
 #endif

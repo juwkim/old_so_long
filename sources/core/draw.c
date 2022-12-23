@@ -6,11 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:40:59 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:41:06 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:47:22 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "core/draw.h"
 
 void	draw_block(int x, int y, void *sprite, t_so_long *so_long)
 {

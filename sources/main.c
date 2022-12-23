@@ -6,11 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 15:28:57 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/23 16:40:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/main.h"
+#include "main.h"
 
 int	main(int argc, char *argv[])
 {
@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 
 	init_game(&game);
 	init_map(&game, argc, argv);
-	init_sprites(&game);
+	init_image(&game);
 	init_player(&game);
 	init_camera(&game);
 	analyse_monster(&game);

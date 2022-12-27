@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.h                                            :+:      :+:    :+:   */
+/*   point.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 16:35:09 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:58:45 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 02:51:56 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 02:53:40 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMAGE_H
-# define IMAGE_H
+#include "tools/point.h"
 
-# include "main.h"
-
-enum {
-	BLOCK_NUMBER = 2,
-	CAT_NUMBER = 54,
-	COIN_NUMBER = 6,
-	GATE_NUMBER = 4,
-	MONSTER_NUMBER = 22,
-	OTHER_NUMBER = 4
-};
-
-enum {
-	BLOCK = 0,
-	CAT = 1,
-	COIN = 2,
-	GATE = 3,
-	MONSTER = 4,
-	OTHER = 5
-};
-
-void	load_image(t_game *game, char *name, int sprite_number, int type);
-
-#endif
+int	is_equal(t_point a, t_point b)
+{
+	return (a.first == b.first && b.first == b.second);
+}

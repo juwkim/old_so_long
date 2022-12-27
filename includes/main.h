@@ -6,14 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 01:13:12 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:57:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-# include <sys/time.h>
 # include <fcntl.h>
 # include <stdlib.h>
 
@@ -23,14 +22,14 @@
 # include "common/mlx.h"
 
 # include "core/hook.h"
-# include "tools/draw_background.h"
+# include "core/draw.h"
+# include "tools/point.h"
 # include "player/player.h"
 
 # define WINDOW_TITLE "game"
 # define WINDOW_WIDTH 1366
 # define WINDOW_HEIGHT 768
-# define NB_LIFE 7
-# define HUD_LM 920
+# define LIFE_NUMBER 7
 
 # define MOVE 0
 # define COLLECTABLE 1
@@ -51,12 +50,6 @@ EHPX : extra hitbox
 # define JPX 40
 # define HPX 15
 # define EHPX 25
-
-typedef struct s_point
-{
-	int	first;
-	int	second;
-}	t_point;
 
 /// @brief Struct that contains all the data of the game
 /*

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 01:03:55 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:41:35 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ static int	game_loop(t_game *game)
 	if (now - game->time_stamp > 15)
 	{
 		game->time_stamp = now;
-		mlx_clear_window(game->mlx, game->window);
-		player_position(game);
-		draw_background(game);
-		item_collision(game);
 		gate_collision(game);
+		collectable_collision(game);
+		draw_background(game);
+		draw_status(game);
 		monster(game);
 		player(game);
-		show_hud(game);
 	}
 	return (1);
 }

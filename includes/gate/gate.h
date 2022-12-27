@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:16:10 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 01:30:57 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:09:41 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@
 
 # define UPDATE_CYCLE 7
 
+int		*get_gate_image(t_game *game);
+void	gate_action(t_game *game, int first, int second);
+void	gate_collision(t_game *game);
 
 #endif

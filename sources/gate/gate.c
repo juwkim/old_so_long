@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:20 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 01:34:34 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:09:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,22 @@ int	*get_gate_image(t_game *game)
 	return (game->image[GATE][idx]);
 }
 
-void	gate_action(t_game *game)
+void	gate_action(t_game *game, int first, int second)
 {
-	if (game->count[COLLECTABLE] == 0)
+	if (game->count[COLLECTABLE] == 0 && game->map[first][second] == 'E')
 	{
 		ft_printf("Success !");
 		destroy(game);
 	}
 }
 
-// Collisions between the gate and the player
-void	gate_collision(t_player *game)
+void	gate_collision(t_game *game)
 {
-	const t_player	*p = &game->player;
+	const int		y = game->player.position.first;
+	const int		x = game->player.position.second;
 
-	if (game->map[(p->a[1] + HPX) / BPX][(p->a[0] + HPX) / BPX] == 'E')
-		gate_action(game);
-	else if (game->map[(p->b[1] - HPX) / BPX][(p->b[0] + HPX) / BPX] == 'E')
-		gate_action(game);
-	else if (game->map[(p->a[1] + HPX) / BPX][(p->c[0] - HPX) / BPX] == 'E')
-		gate_action(game);
-	else if (game->map[(p->d[1] - HPX) / BPX][(p->c[0] - HPX) / BPX] == 'E')
-		gate_action(game);
+	gate_action(game, (x + HPX) / BPX, (y + HPX) / BPX);
+	gate_action(game, (x + BPX - HPX) / BPX, (y + HPX) / BPX);
+	gate_action(game, (x + HPX) / BPX, (y + BPX - HPX) / BPX);
+	gate_action(game, (x + BPX - HPX) / BPX, (y + BPX - HPX) / BPX);
 }

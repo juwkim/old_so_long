@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   millitimestamp.c                                   :+:      :+:    :+:   */
+/*   time_stamp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:12 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/27 23:45:00 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:14:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "tools/time_stamp.h"
 
 // Get timestamp in milliseconds
 long long	millitimestamp(void)

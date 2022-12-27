@@ -19,6 +19,12 @@
         "string": "c",
         "string_view": "c",
         "vector": "c",
-        "complex": "c"
+        "complex": "c",
+        "draw_background.h": "c",
+        "__config": "c",
+        "__errc": "c",
+        "__locale": "c",
+        "__tuple": "c",
+        "ios": "c"
     }
 }

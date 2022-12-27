@@ -6,13 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:44 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 16:47:37 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:58:35 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/image.h"
 
-void	load_sprite(t_game *game, char *name, int sprite_number, int type)
+void	load_image(t_game *game, char *name, int sprite_number, int type)
 {
 	int			idx;
 	const int	img_size = BPX;

@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.h                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 16:35:09 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:58:45 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/23 13:41:11 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 03:01:41 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMAGE_H
-# define IMAGE_H
+#include "tools/error.h"
 
-# include "main.h"
+void	error(int error_n)
+{
+	const char *const	error_message[4] = \
+	{
+		"Error: You must indicate only one map path !\n", \
+		"Error: Unable to open the map !\n", \
+		"Error: The map is not in a valid format !\n", \
+		"Error: A sprite could not be opened !\n"
+	};
 
-enum {
-	BLOCK_NUMBER = 2,
-	CAT_NUMBER = 54,
-	COIN_NUMBER = 6,
-	GATE_NUMBER = 4,
-	MONSTER_NUMBER = 22,
-	OTHER_NUMBER = 4
-};
-
-enum {
-	BLOCK = 0,
-	CAT = 1,
-	COIN = 2,
-	GATE = 3,
-	MONSTER = 4,
-	OTHER = 5
-};
-
-void	load_image(t_game *game, char *name, int sprite_number, int type);
-
-#endif
+	ft_printf(error_message[error_n]);
+	exit(EXIT_FAILURE);
+}

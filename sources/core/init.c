@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 00:40:01 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 02:58:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ int	init_map(t_game *game, int argc, char *argv[])
 
 void	init_image(t_game *game)
 {
-	load_sprite(game, "./assets/life/life_", BLOCK_NUMBER, BLOCK);
-	load_sprite(game, "./assets/cat/cat_", CAT_NUMBER, CAT);
-	load_sprite(game, "./assets/coin/coin_", COIN_NUMBER, COIN);
-	load_sprite(game, "./assets/gate/gate_", GATE_NUMBER, GATE);
-	load_sprite(game, "./assets/monster/monster_", MONSTER_NUMBER, MONSTER);
-	load_sprite(game, "./assets/other/other_", OTHER_NUMBER, OTHER);
+	load_image(game, "./assets/life/life_", BLOCK_NUMBER, BLOCK);
+	load_image(game, "./assets/cat/cat_", CAT_NUMBER, CAT);
+	load_image(game, "./assets/coin/coin_", COIN_NUMBER, COIN);
+	load_image(game, "./assets/gate/gate_", GATE_NUMBER, GATE);
+	load_image(game, "./assets/monster/monster_", MONSTER_NUMBER, MONSTER);
+	load_image(game, "./assets/other/other_", OTHER_NUMBER, OTHER);
 }
 
 int	init_player(t_game *game)
 {
 	game->player.jump = 0;
 	game->player.tick_life = 50;
-	game->player.life_number = NB_LIFE;
+	game->player.life_number = LIFE_NUMBER;
 	game->player.direction = 1;
 	return (0);
 }

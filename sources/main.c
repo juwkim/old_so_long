@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/27 23:28:28 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:00:26 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	game_loop(t_game *game)
 	diff_millisecs = now - game->time_stamp;
 	if (diff_millisecs > 15)
 	{
-		fps(game);
 		mlx_clear_window(game->mlx, game->window);
 		player_position(game);
 		draw_background(game);

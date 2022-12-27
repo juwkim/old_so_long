@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:06:11 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/27 23:36:55 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:27:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "main.h"
 # include "core/image.h"
+# include "monster/monster.h"
 
 void	init_game(t_game *game);
 int		init_map(t_game *game, int argc, char *argv[]);

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:34 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:43:42 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 01:06:56 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,6 @@ int	*get_item_sprite(t_so_long *so_long)
 	else
 		anim_inter++;
 	return (so_long->cs[arr_pos]);
-}
-
-// Displays an item block
-static void	draw_item(t_so_long *so_long)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < so_long->game_height)
-	{
-		j = 0;
-		while (j < so_long->game_width)
-		{
-			if (so_long->map[i][j] == 'C')
-				draw_block(j * BPX + so_long->window_offset.first,
-					i * BPX + so_long->window_offset.second, get_item_sprite(so_long),
-					so_long);
-			j++;
-		}
-		i++;
-	}
 }
 
 // Action triggered during collision with the player
@@ -85,11 +63,4 @@ static void	item_collision(t_so_long *so_long)
 		so_long->map[(p->d[1] - HPX) / BPX][(p->d[0] - HPX) / BPX] = '0';
 		item_action(so_long);
 	}
-}
-
-// Meta function for items
-void	item(t_so_long *so_long)
-{
-	draw_item(so_long);
-	item_collision(so_long);
 }

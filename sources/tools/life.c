@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hud.c                                              :+:      :+:    :+:   */
+/*   life.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:27 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:43:31 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:28:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	show_movement(t_so_long *so_long)
 	free(nb_movement);
 }
 
-void	show_hud(t_so_long *so_long)
+void	show_status(t_so_long *so_long)
 {
 	mlx_put_image_to_window(so_long->mlx, so_long->window, so_long->os[3], \
 	HUD_LM + 10, 10);

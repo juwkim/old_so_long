@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strin.c                                         :+:      :+:    :+:   */
+/*   gate.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 11:07:47 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 14:59:28 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 01:16:10 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 01:30:57 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GATE_H
+# define GATE_H
 
-int	*ft_strin(char c, const char *str)
-{
-	int			idx;
-	const int	end = ft_strlen(str);
+# include "main.h"
+# include "core/hook.h"
+# include "player/player.h"
 
-	idx = 0;
-	while (idx < end)
-	{
-		if (str[idx] == c)
-			return (idx);
-		++idx;
-	}
-	return (-1);
-}
+# define UPDATE_CYCLE 7
+
+
+#endif

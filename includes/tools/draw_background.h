@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.h                                             :+:      :+:    :+:   */
+/*   draw_background.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 17:11:54 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:13:44 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 00:24:20 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 00:51:28 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_H
-# define DRAW_H
+#ifndef DRAW_BACKGROUND_H
+# define DRAW_BACKGROUND_H
 
 # include "main.h"
+# include "core/image.h"
 
-void	draw_block(t_game *game, int x, int y, void *block);
+enum {
+	BLOCK	= 0,
+	WALL	= 1
+};
+
+void	draw_block(t_game *game, void *block, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 00:00:26 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 01:03:55 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,16 @@ int	main(int argc, char *argv[])
 
 static int	game_loop(t_game *game)
 {
-	const long long	now = millitimestamp();
-	long long		diff_millisecs;
+	const long long	now = time_stamp();
 
-	diff_millisecs = now - game->time_stamp;
-	if (diff_millisecs > 15)
+	if (now - game->time_stamp > 15)
 	{
+		game->time_stamp = now;
 		mlx_clear_window(game->mlx, game->window);
 		player_position(game);
 		draw_background(game);
-		wall(game);
-		item(game);
-		gate(game);
+		item_collision(game);
+		gate_collision(game);
 		monster(game);
 		player(game);
 		show_hud(game);

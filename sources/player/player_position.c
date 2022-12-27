@@ -6,24 +6,25 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:08 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:45:12 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:18:47 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "main.h"
+#include "player/player.h"
 
 // Setting player collision points
-void	player_position(t_so_long *so_long)
+void	player_position(t_player *player)
 {
-	t_player	*p;
+	const int	x = player->position.first;
+	const int	y = player->position.second;
 
-	p = &so_long->player;
-	p->a[0] = p->position.first;
-	p->a[1] = p->position.second;
-	p->b[0] = p->a[0];
-	p->b[1] = p->a[1] + BPX;
-	p->c[0] = p->a[0] + BPX;
-	p->c[1] = p->a[1];
-	p->d[0] = p->a[0] + BPX;
-	p->d[1] = p->a[1] + BPX;
+	player->top_left.first = x;
+	player->top_left.second = y;
+	player->top_right.first = x;
+	player->top_right.second = y + BPX;
+	player->btm_left.first = x + BPX;
+	player->btm_left.second = y;
+	player->btm_right.first = x + BPX;
+	player->btm_right.second = y + BPX;
 }

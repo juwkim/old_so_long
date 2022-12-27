@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/27 23:39:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:40:01 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	init_game(t_game *game)
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, \
 					WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
-	game->width = -1;
-	game->height = -1;
+	game->map_size.first = -1;
+	game->map_size.second = -1;
 	game->time_stamp = 0;
 	game->count[MOVE] = 0;
 	game->count[COLLECTABLE] = 0;
@@ -43,10 +43,10 @@ int	init_map(t_game *game, int argc, char *argv[])
 
 void	init_image(t_game *game)
 {
+	load_sprite(game, "./assets/life/life_", BLOCK_NUMBER, BLOCK);
 	load_sprite(game, "./assets/cat/cat_", CAT_NUMBER, CAT);
 	load_sprite(game, "./assets/coin/coin_", COIN_NUMBER, COIN);
 	load_sprite(game, "./assets/gate/gate_", GATE_NUMBER, GATE);
-	load_sprite(game, "./assets/life/life_", LIFE_NUMBER, LIFE);
 	load_sprite(game, "./assets/monster/monster_", MONSTER_NUMBER, MONSTER);
 	load_sprite(game, "./assets/other/other_", OTHER_NUMBER, OTHER);
 }
@@ -64,8 +64,8 @@ void	init_camera(t_game *game)
 {
 	game->offset_game.first = 0;
 	game->offset_game.second = 0;
-	if (game->width < 15)
-		game->offset_game.first = (14 - game->width) / 2 * BPX;
-	if (game->height < 8)
-		game->offset_game.second = (7 - game->height) / 2 * BPX;
+	if (game->map_size.first < 15)
+		game->offset_game.first = (14 - game->map_size.first) / 2 * BPX;
+	if (game->map_size.second < 8)
+		game->offset_game.second = (7 - game->map_size.second) / 2 * BPX;
 }

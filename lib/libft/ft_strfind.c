@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   ft_strfind.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 13:40:59 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:13:36 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 00:45:56 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 00:46:02 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/draw.h"
+#include "libft.h"
 
-void	draw_block(t_game *game, int x, int y, void *block)
+int	*ft_strfind(char c, const char *str)
 {
-	if (x < -BPX || y < -BPX || x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
-		return ;
-	mlx_put_image_to_window(game->mlx, game->window, block, x, y);
+	int			idx;
+	const int	end = ft_strlen(str);
+
+	idx = 0;
+	while (idx < end)
+	{
+		if (str[idx] == c)
+			return (idx);
+		++idx;
+	}
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:18:49 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 00:47:42 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	read_map(t_game *game, int fd)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if (game->width == -1)
-			game->width = ft_strlen(line);
-		if (ft_strlen(line) != game->width)
+		if (game->map_size.first == -1)
+			game->map_size.first = ft_strlen(line);
+		if (ft_strlen(line) != game->map_size.first)
 			return (0);
 		game->map[idx++] = line;
 	}
-	game->height = idx;
-	return (game->width != -1);
+	game->map_size.second = idx;
+	return (game->map_size.first != -1);
 }
 
 int	check_map(t_game *game)
@@ -53,12 +53,12 @@ int	check_map(t_game *game)
 
 	ft_memset(elements, 0, sizeof(elements));
 	i = 0;
-	while (++i < game->height - 1)
+	while (++i < game->map_size.second - 1)
 	{
 		j = 0;
-		while (++j < game->width - 1)
+		while (++j < game->map_size.first - 1)
 		{
-			idx = ft_strin(game->map[i][j], "PCE10");
+			idx = ft_strfind(game->map[i][j], "PCE10");
 			if (idx == -1)
 				return (0);
 			if (game->map[i][j] == 'P')
@@ -79,15 +79,17 @@ int	check_side(t_game *game)
 	int	j;
 
 	i = -1;
-	while (++i < game->height)
+	while (++i < game->map_size.first)
 	{
-		if (game->map[i][0] != '1' || game->map[i][game->width - 1] != '1')
+		if (game->map[i][0] != '1' || \
+		game->map[i][game->map_size.second - 1] != '1')
 			return (0);
 	}
 	j = -1;
-	while (++j < game->width)
+	while (++j < game->map_size.second)
 	{
-		if (game->map[0][j] != '1' || game->map[game->height - 1][j] != '1')
+		if (game->map[0][j] != '1' || \
+		game->map[game->map_size.first - 1][j] != '1')
 			return (0);
 	}
 	return (1);

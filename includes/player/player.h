@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 04:40:48 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 07:05:38 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_player
 	int		diagonal;
 	int		tick_life;
 	int		life_number;
+	int		last_image;
 }	t_player;
 
 void	player_update(t_game *game);

@@ -25,6 +25,7 @@
         "__errc": "c",
         "__locale": "c",
         "__tuple": "c",
-        "ios": "c"
+        "ios": "c",
+        "player_move.h": "c"
     }
 }

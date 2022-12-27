@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:45 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:43:49 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:46:52 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
 // Displays a wall block
-static void	draw_wall(t_so_long *so_long)
+void	draw_wall(t_so_long *so_long)
 {
 	int	i;
 	int	j;
@@ -32,10 +32,4 @@ static void	draw_wall(t_so_long *so_long)
 		}
 		i++;
 	}
-}
-
-// Meta function for walls
-void	wall(t_so_long *so_long)
-{
-	draw_wall(so_long);
 }

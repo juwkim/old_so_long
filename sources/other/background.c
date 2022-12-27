@@ -6,37 +6,31 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:03 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:43:07 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:41:52 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "main.h"
+# define BLOCK 0
 
-// Displays a background block
-static void	draw_background(t_so_long *so_long)
+void	draw_background(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < so_long->game_height)
+	while (i < game->height)
 	{
 		j = 0;
-		while (j < so_long->game_width)
+		while (j < game->width)
 		{
-			if (so_long->map[i][j] == '0' || so_long->map[i][j] == 'M'
-			|| so_long->map[i][j] == 'P' || so_long->map[i][j] == 'C' )
-				draw_block(j * BPX + so_long->window_offset.first,
-					i * BPX + so_long->window_offset.second, so_long->os[0],
-					so_long);
+			if (game->map[i][j] == '0' || game->map[i][j] == 'M'
+			|| game->map[i][j] == 'P' || game->map[i][j] == 'C' )
+				draw_block(j * BPX + game->offset_window.first,
+					i * BPX + game->offset_window.second, game->image[OTHER][BLOCK],
+					game);
 			j++;
 		}
 		i++;
 	}
-}
-
-// Meta function for background
-void	background(t_so_long *so_long)
-{
-	draw_background(so_long);
 }

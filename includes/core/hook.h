@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:16:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:17:56 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:21:40 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,34 @@
 
 # include "main.h"
 
-int	keydown_hook(int keycode, t_game *game);
-int	keyup_hook(int keycode, t_game *game);
-int	close_hook(int keycode, t_game *game);
+# define NO_EVENT_MASK 0
+
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+enum {
+	KEY_A		=	0,
+	KEY_S		=	1,
+	KEY_D		=	2,
+	KEY_W		=	13,
+	KEY_R		=	15,
+	KEY_RETURN	=	36,
+	KEY_ESC		=	53,
+	KEY_LEFT	=	123,
+	KEY_RIGHT	=	124,
+	KEY_DOWN	=	125,
+	KEY_UP		=	126,
+};
+
+int	key_down(int keycode, t_game *game);
+int	key_up(int keycode, t_game *game);
+int	destroy(t_game *game);
 
 #endif

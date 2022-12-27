@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 16:47:45 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:39:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	init_map(t_game *game, int argc, char *argv[])
 
 void	init_image(t_game *game)
 {
-	load_sprite(game, "./assets/cat/cat_", CAT_IMAGE_NUMBER, 0);
-	load_sprite(game, "./assets/coin/coin_", COIN_IMAGE_NUMBER, 1);
-	load_sprite(game, "./assets/gate/gate_", GATE_IMAGE_NUMBER, 2);
-	load_sprite(game, "./assets/life/life_", LIFE_IMAGE_NUMBER, 3);
-	load_sprite(game, "./assets/monster/monster_", MONSTER_IMAGE_NUMBER, 4);
-	load_sprite(game, "./assets/other/other_", OTHER_IMAGE_NUMBER, 5);
+	load_sprite(game, "./assets/cat/cat_", CAT_NUMBER, CAT);
+	load_sprite(game, "./assets/coin/coin_", COIN_NUMBER, COIN);
+	load_sprite(game, "./assets/gate/gate_", GATE_NUMBER, GATE);
+	load_sprite(game, "./assets/life/life_", LIFE_NUMBER, LIFE);
+	load_sprite(game, "./assets/monster/monster_", MONSTER_NUMBER, MONSTER);
+	load_sprite(game, "./assets/other/other_", OTHER_NUMBER, OTHER);
 }
 
 int	init_player(t_game *game)

@@ -6,11 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:12 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:44:16 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:40:54 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "main.h"
 
 // get action code
 int	get_action_keycode(int keycode)
@@ -31,11 +31,11 @@ int	get_action_keycode(int keycode)
 }
 
 // set action
-void	set_action(int keycode, t_so_long *so_long)
+void	set_action(int keycode, t_game *game)
 {
 	t_player	*p;
 
-	p = &so_long->player;
+	p = &game->player;
 	if (get_action_keycode(keycode) != 5)
 	{
 		if (p->action_code[0] == 0
@@ -54,11 +54,11 @@ void	set_action(int keycode, t_so_long *so_long)
 }
 
 // unset action
-void	unset_action(int keycode, t_so_long *so_long)
+void	unset_action(int keycode, t_game *game)
 {
 	t_player	*p;
 
-	p = &so_long->player;
+	p = &game->player;
 	if (p->action_code[0] == get_action_keycode(keycode))
 		p->action_code[0] = 0;
 	if (p->action_code[1] == get_action_keycode(keycode))
@@ -71,3 +71,4 @@ void	unset_action(int keycode, t_so_long *so_long)
 	if (p->action_code[2] == get_action_keycode(keycode))
 		p->action_code[2] = 0;
 }
+

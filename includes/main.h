@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:10:04 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/27 23:58:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "libft.h"
-# include "mlx.h"
+# include "common/ft_printf.h"
+# include "common/get_next_line.h"
+# include "common/libft.h"
+# include "common/mlx.h"
+
+# include "core/hook.h"
 
 # define WINDOW_TITLE "game"
 # define WINDOW_WIDTH 1366
@@ -104,13 +106,6 @@ monster : monster struct
 # define MOVE 0
 # define COLLECTABLE 1
 
-# define CAT_IMAGE_NUMBER 54
-# define COIN_IMAGE_NUMBER 5
-# define GATE_IMAGE_NUMBER 5
-# define LIFE_IMAGE_NUMBER 2
-# define MONSTER_IMAGE_NUMBER 22
-# define OTHER_IMAGE_NUMBER 5
-
 typedef struct s_game {
 	void		*mlx;
 	void		*window;
@@ -121,7 +116,7 @@ typedef struct s_game {
 	long long	time_stamp;
 	t_point		offset_window;
 	t_point		offset_game;
-	t_list		*monsters;
+	t_list		*monster;
 	t_player	player;
 	void		*image[6][54];
 }	t_game;

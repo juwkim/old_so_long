@@ -13,22 +13,22 @@
 #include "game.h"
 
 // Return player jumb sprite
-int	player_jumb_sprite(int *last_anim, t_so_long *so_long)
+int	player_jumb_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 	{
-		if (so_long->player.jump > 1)
+		if (game->player.jump > 1)
 			i = 39;
-		else if (so_long->player.jump <= 1)
+		else if (game->player.jump <= 1)
 			i = 40;
 	}
 	else
 	{
-		if (so_long->player.jump > 1)
+		if (game->player.jump > 1)
 			i = 12;
-		else if (so_long->player.jump <= 1)
+		else if (game->player.jump <= 1)
 			i = 13;
 	}
 	*last_anim = 1;
@@ -36,11 +36,11 @@ int	player_jumb_sprite(int *last_anim, t_so_long *so_long)
 }
 
 // Return player attack sprite
-int	player_attack_sprite(int *last_anim, t_so_long *so_long)
+int	player_attack_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 	{
 		if (*last_anim != 2)
 			i = 46;
@@ -63,11 +63,11 @@ int	player_attack_sprite(int *last_anim, t_so_long *so_long)
 }
 
 // Return player walk sprite
-int	player_walk_sprite(int *last_anim, t_so_long *so_long)
+int	player_walk_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 	{
 		if (*last_anim != 3)
 			i = 35;
@@ -90,11 +90,11 @@ int	player_walk_sprite(int *last_anim, t_so_long *so_long)
 }
 
 // Return player hurt sprite
-int	player_hurt_sprite(int *last_anim, t_so_long *so_long)
+int	player_hurt_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 	{
 		if (*last_anim != 6)
 			i = 50;
@@ -117,11 +117,11 @@ int	player_hurt_sprite(int *last_anim, t_so_long *so_long)
 }
 
 // Return player down sprite
-int	player_down_sprite(int *last_anim, t_so_long *so_long)
+int	player_down_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 		i = 45;
 	else
 		i = 18;

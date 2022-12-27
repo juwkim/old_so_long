@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:16:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/27 23:21:40 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:02:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ enum {
 	KEY_UP		=	126,
 };
 
-int	key_down(int keycode, t_game *game);
+int	key_down(int keycode, t_player *p);
 int	key_up(int keycode, t_game *game);
 int	destroy(t_game *game);
 

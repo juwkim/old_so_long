@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:58:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:29:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ void	init_image(t_game *game)
 	load_image(game, "./assets/other/other_", OTHER_NUMBER, OTHER);
 }
 
-int	init_player(t_game *game)
+int	init_player(t_player *player)
 {
-	game->player.jump = 0;
-	game->player.tick_life = 50;
-	game->player.life_number = LIFE_NUMBER;
-	game->player.direction = 1;
+	player->jump = 0;
+	player->tick_life = 50;
+	player->life_number = LIFE_NUMBER;
+	player->attack = 0;
+	player->move_horizontal = MOVE_STAY;
+	player->move_vertical = MOVE_STAY;
 	return (0);
 }
 

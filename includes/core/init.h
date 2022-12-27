@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:06:11 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 03:01:04 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 03:53:56 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 void	init_game(t_game *game);
 int		init_map(t_game *game, int argc, char *argv[]);
 void	init_image(t_game *game);
-int		init_player(t_game *game);
+int		init_player(t_player *player);
 void	init_camera(t_game *game);
 
 #endif

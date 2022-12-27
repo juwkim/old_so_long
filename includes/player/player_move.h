@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_gravity.c                                   :+:      :+:    :+:   */
+/*   player_move.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 13:44:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:44:58 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 03:06:29 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 03:08:45 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#ifndef PLAYER_MOVE_H
+# define PLAYER_MOVE_H
 
-// Player_gravity
-void	player_gravity(t_so_long *so_long)
-{
-	t_player	*p;
+# include "main.h"
+# include "player/player.h"
+# include "tools/point.h"
 
-	p = &so_long->player;
-	if ((p->action_code[0] != 4) && p->jump == 0)
-		p->position.second += get_pgwc(so_long);
-}
+#endif

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_mouvement.c                                 :+:      :+:    :+:   */
+/*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:01 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:49:35 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:34:31 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
-
-void	move_count_update(t_game *game)
-{
-	if (game->player.lpp.first != game->player.position.first || \
-		game->player.lpp.second != game->player.position.second)
-		game->move_count++;
-}
+#include "player/player_move.h"
 
 // Player move in horizontal axis
-void	player_move_y(t_game *game)
+void	player_move_horizontal(t_player p, char *map[])
 {
 	t_player	*p;
 
@@ -32,7 +25,7 @@ void	player_move_y(t_game *game)
 }
 
 // Player move in vertical axis
-void	player_move_z(t_game *game)
+void	player_move_vertical(t_player p, char *map[])
 {
 	t_player	*p;
 
@@ -44,7 +37,7 @@ void	player_move_z(t_game *game)
 }
 
 // Player move in diagonal
-void	player_move_d(t_game *game)
+void	player_move_diagonal(t_player p, char *map[])
 {
 	t_player *const	p = &game->player;
 
@@ -73,19 +66,23 @@ void	player_move_d(t_game *game)
 	}
 }
 
-// Player jump in vertical axis
-void	player_jump(t_game *game)
+void	player_jump(t_player p, char *map[])
 {
-	t_player	*p;
+	const t_player	*p = &game->player;
 
-	p = &(game->player);
 	if ((p->action_code[0] == 10 \
 		|| p->action_code[1] == 10) && p->jump == 0 && \
 		get_pgwc(game) == 0)
 		p->jump = 10;
-	else if (p->jump > 0 && p->di == 0)
+	else if (p->jump > 0 && p->diagonal == 0)
 	{
 		p->position.second -= get_pjwc(game);
 		p->jump--;
 	}
+}
+
+void	player_gravity(t_player p, char *map[])
+{
+	if ((p->action_code[0] != 4) && p->jump == 0)
+		p->position.second += get_pgwc(game);
 }

@@ -93,7 +93,7 @@ static void	monster_sprite_pos(t_monster *m)
 }
 
 // Get the sprite that corresponds to the correct animation step
-int	*get_monster_sprite(t_monster *m, t_so_long *so_long)
+int	*get_monster_sprite(t_monster *m, t_game *game)
 {
 	if (m->ai == 4)
 	{
@@ -102,5 +102,5 @@ int	*get_monster_sprite(t_monster *m, t_so_long *so_long)
 	}
 	else
 		m->ai++;
-	return (so_long->ms[m->ap]);
+	return (game->ms[m->ap]);
 }

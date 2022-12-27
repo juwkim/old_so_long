@@ -12,7 +12,7 @@
 
 #include "game.h"
 
-static void	monster_move_dir(t_monster *m, t_so_long *so_long)
+static void	monster_move_dir(t_monster *m, t_game *game)
 {
 	int			dist;
 
@@ -21,14 +21,14 @@ static void	monster_move_dir(t_monster *m, t_so_long *so_long)
 		m->mi = 0;
 		if (m->direction == 1)
 		{
-			dist = get_mrwc(m, so_long);
+			dist = get_mrwc(m, game);
 			m->pp[0] = m->pp[0] + dist;
 			if (m->pp[0] > m->init_p[0] + (BPX * 2) || dist == 0)
 				m->direction = 0;
 		}
 		else
 		{
-			dist = get_mlwc(m, so_long);
+			dist = get_mlwc(m, game);
 			m->pp[0] = m->pp[0] - dist;
 			if (m->pp[0] < m->init_p[0] - (BPX * 2) || dist == 0)
 				m->direction = 1;
@@ -37,18 +37,18 @@ static void	monster_move_dir(t_monster *m, t_so_long *so_long)
 	m->mi++;
 }
 
-void	monster_move(t_so_long *so_long)
+void	monster_move(t_game *game)
 {
 	t_list		*lst;
 	t_monster	*m;
 
-	lst = so_long->monsters;
+	lst = game->monsters;
 	while (lst)
 	{
 		m = ((t_monster *)lst->content);
 		monster_position(m);
 		if (m->move == 1)
-			monster_move_dir(m, so_long);
+			monster_move_dir(m, game);
 		lst = lst->next;
 	}
 }

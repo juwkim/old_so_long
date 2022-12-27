@@ -6,30 +6,25 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:44:42 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:58:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "main.h"
 
 // Return the distance between the player and the nearest obstacle on the right
-int	get_prwc(t_so_long *so_long)
+int	get_prwc(t_player p, char *map[])
 {
-	char				**m;
-	int					dist_coll;
-	t_player *const		p = &so_long->player;
+	int	dist_coll;
 
-	m = so_long->map;
-	if (m[(p->c[1] + HPX + EHPX) / BPX][(p->c[0]) / BPX + 1] == '1' ||
-	m[(p->d[1]) / BPX][(p->d[0]) / BPX +1] == '1')
+	if (map[(p->c[1] + HPX + EHPX) / BPX][(p->c[0]) / BPX + 1] == '1' ||
+	m[(p->d[1]) / BPX][(p->d[0]) / BPX + 1] == '1')
 	{
 		if (m[(p->c[1] + HPX) / BPX][(p->c[0] - HPX) / BPX] == '1' ||
 			m[p->d[1] / BPX][(p->d[0] - HPX) / BPX] == '1')
 			return (-(HPX + 10));
 		dist_coll = BPX + (BPX * ((p->c[0]) / BPX) - p->c[0]) - 1;
-		if (dist_coll > MPX)
-			return (MPX);
-		return (dist_coll);
+		return (min(MPX, dist_coll));
 	}
 	if (m[(p->c[1] + HPX + EHPX) / BPX][(p->c[0] - HPX + EHPX) / BPX] == '1' ||
 	m[p->d[1] / BPX][(p->d[0] - HPX + EHPX) / BPX] == '1')
@@ -38,14 +33,14 @@ int	get_prwc(t_so_long *so_long)
 }
 
 // Return the distance between the player and the nearest obstacle on the left
-int	get_plwc(t_so_long *so_long)
+int	get_plwc(t_game *game)
 {
 	int			dist_coll;
 	t_player	*p;
 	char		**m;
 
-	p = &so_long->player;
-	m = so_long->map;
+	p = &game->player;
+	m = game->map;
 	if (m[(p->a[1] + HPX + EHPX) / BPX][(p->a[0]) / BPX -1] == '1' ||
 	m[(p->b[1]) / BPX][(p->b[0]) / BPX -1] == '1')
 	{
@@ -65,14 +60,14 @@ int	get_plwc(t_so_long *so_long)
 
 // Return the distance between the player and the nearest obstacle on the down 
 // (ground)
-int	get_pgwc(t_so_long *so_long)
+int	get_pgwc(t_game *game)
 {
 	int			dist_coll;
 	t_player	*p;
 
-	p = &so_long->player;
-	if (so_long->map[(p->b[1]) / BPX +1][(p->b[0] + HPX) / BPX] == '1' ||
-	so_long->map[(so_long->player.d[1]) / BPX +1]
+	p = &game->player;
+	if (game->map[(p->b[1]) / BPX +1][(p->b[0] + HPX) / BPX] == '1' ||
+	game->map[(game->player.d[1]) / BPX +1]
 	[(p->d[0] - HPX) / BPX] == '1')
 	{
 		dist_coll = (BPX * ((p->b[1]) / BPX +1)) - p->b[1] -1;
@@ -84,14 +79,14 @@ int	get_pgwc(t_so_long *so_long)
 }
 
 // Return the distance between the player and the nearest obstacle on the down
-int	get_pdwc(t_so_long *so_long)
+int	get_pdwc(t_game *game)
 {
 	int			dist_coll;
 	t_player	*p;
 
-	p = &so_long->player;
-	if (so_long->map[(p->b[1]) / BPX +1][(p->b[0] + HPX) / BPX] == '1' ||
-	so_long->map[(so_long->player.d[1]) / BPX +1]
+	p = &game->player;
+	if (game->map[(p->b[1]) / BPX +1][(p->b[0] + HPX) / BPX] == '1' ||
+	game->map[(game->player.d[1]) / BPX +1]
 	[(p->d[0] - HPX) / BPX] == '1')
 	{
 		dist_coll = (BPX * ((p->b[1]) / BPX +1)) - p->b[1] -1;
@@ -104,22 +99,22 @@ int	get_pdwc(t_so_long *so_long)
 
 // Return the distance between the player and the nearest obstacle on the top
 // (jump)
-int	get_pjwc(t_so_long *so_long)
+int	get_pjwc(t_game *game)
 {
 	int			dist_coll;
 	t_player	*p;
 
-	p = &so_long->player;
-	if (so_long->map[(p->a[1] + 1) / BPX -1][(p->a[0] + HPX) / BPX] == '1' ||
-	so_long->map[(p->c[1] + 1) / BPX - 1][(p->c[0] - HPX) / BPX] == '1')
+	p = &game->player;
+	if (game->map[(p->a[1] + 1) / BPX -1][(p->a[0] + HPX) / BPX] == '1' ||
+	game->map[(p->c[1] + 1) / BPX - 1][(p->c[0] - HPX) / BPX] == '1')
 	{
 		dist_coll = p->b[1] - (BPX * ((p->b[1] + 1) / BPX)) - 1 + 2;
 		if (dist_coll > JPX)
 			return (JPX);
 		return (dist_coll);
 	}
-	if (so_long->map[(p->a[1]) / BPX][(p->a[0] + HPX) / BPX] == '1' ||
-	so_long->map[(p->c[1]) / BPX][(p->c[0] - HPX) / BPX] == '1')
+	if (game->map[(p->a[1]) / BPX][(p->a[0] + HPX) / BPX] == '1' ||
+	game->map[(p->c[1]) / BPX][(p->c[0] - HPX) / BPX] == '1')
 		return (-(HPX));
 	return (JPX);
 }

@@ -12,53 +12,53 @@
 
 #include "game.h"
 
-static void	monster_player_action(t_monster *m, t_so_long *so_long)
+static void	monster_player_action(t_monster *m, t_game *game)
 {
-	if (so_long->player.a[0] > m->a[0])
-		so_long->player.direction = 0;
+	if (game->player.a[0] > m->a[0])
+		game->player.direction = 0;
 	else
-		so_long->player.direction = 1;
-	so_long->player.tick_life = 50;
+		game->player.direction = 1;
+	game->player.tick_life = 50;
 	m->td = 15;
 	m->alive = 0;
 }
 
-static void	monster_action(t_monster *m, t_so_long *so_long)
+static void	monster_action(t_monster *m, t_game *game)
 {
 	m->move = 0;
-	so_long->player.tick_life--;
+	game->player.tick_life--;
 	if (m->ta > 0)
 		m->ta--;
 	if (m->td > 0)
 		m->td--;
-	if (so_long->player.life_number < 1)
+	if (game->player.life_number < 1)
 	{
-		mlx_destroy_window(so_long->mlx, so_long->window);
+		mlx_destroy_window(game->mlx, game->window);
 		ft_printf("You loose the game !\n");
 		exit(EXIT_SUCCESS);
 	}
-	if (so_long->player.tick_life < 1)
+	if (game->player.tick_life < 1)
 	{
 		ft_printf("You loose 1 life !\n");
-		so_long->player.tick_life = 50;
-		so_long->player.life_number--;
+		game->player.tick_life = 50;
+		game->player.life_number--;
 		m->ta = 20;
 	}
-	else if (so_long->player.action_code[2] == 5)
-		monster_player_action(m, so_long);
+	else if (game->player.action_code[2] == 5)
+		monster_player_action(m, game);
 }
 
-void	monster_interaction(t_so_long *so_long)
+void	monster_interaction(t_game *game)
 {
 	t_list		*lst;
 	t_monster	*m;
 	t_player	*p;
 
-	lst = so_long->monsters;
+	lst = game->monsters;
 	while (lst)
 	{
 		m = ((t_monster *)lst->content);
-		p = &so_long->player;
+		p = &game->player;
 		if ((((p->a[0] > m->a[0] && p->a[0] < m->c[0]) || \
 			(p->c[0] > m->a[0] && p->c[0] < m->c[0])) && \
 			p->a[1] < m->b[1] && p->b[1] > m->a[1]) && \
@@ -68,7 +68,7 @@ void	monster_interaction(t_so_long *so_long)
 				m->direction = 0;
 			else
 				m->direction = 1;
-			monster_action(m, so_long);
+			monster_action(m, game);
 		}
 		else
 			m->move = 1;

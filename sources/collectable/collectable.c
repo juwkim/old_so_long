@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:52:00 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:07:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 03:02:54 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	*get_collectable_image(t_game *game)
 		idx = (idx + 1) % COIN_NUMBER;
 	return (game->image[COIN][idx]);
 }
-
 
 void	collectable_action(t_game *game, int first, int second)
 {

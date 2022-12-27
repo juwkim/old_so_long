@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:57:21 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:15:14 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ EHPX : extra hitbox
 # define JPX 40
 # define HPX 15
 # define EHPX 25
+
+enum e_bool {
+	FALSE = 0,
+	TRUE = 1
+};
 
 /// @brief Struct that contains all the data of the game
 /*

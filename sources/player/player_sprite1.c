@@ -6,18 +6,18 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:15 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:45:18 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 04:46:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
 // Return player failling sprite
-int	player_failling_sprite(int *last_anim, t_so_long *so_long)
+int	player_failling_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 		i = 44;
 	else
 		i = 17;
@@ -26,11 +26,11 @@ int	player_failling_sprite(int *last_anim, t_so_long *so_long)
 }
 
 // Return player stay sprite
-int	player_stay_sprite(int *last_anim, t_so_long *so_long)
+int	player_stay_sprite(int *last_anim, t_game *game)
 {
 	static int	i;
 
-	if (so_long->player.direction == 0)
+	if (game->player.direction == 0)
 	{
 		if (*last_anim != 7)
 			i = 27;
@@ -54,28 +54,28 @@ int	player_stay_sprite(int *last_anim, t_so_long *so_long)
 
 // Return sprite depending on the player's state
 static int	player_sprite_pos(int atk_progress, int hurt_progress,
-int *last_anim, t_so_long *so_long)
+int *last_anim, t_game *game)
 {
-	if (so_long->player.jump != 0)
-		return (player_jumb_sprite(last_anim, so_long));
+	if (game->player.jump != 0)
+		return (player_jumb_sprite(last_anim, game));
 	else if (atk_progress > 0)
-		return (player_attack_sprite(last_anim, so_long));
+		return (player_attack_sprite(last_anim, game));
 	else if (hurt_progress > 0)
-		return (player_hurt_sprite(last_anim, so_long));
-	else if (so_long->player.action_code[0] == 2 || so_long->player.action_code[1] == 2 || \
-	so_long->player.action_code[0] == 1 || so_long->player.action_code[1] == 1)
-		return (player_walk_sprite(last_anim, so_long));
-	else if ((so_long->player.action_code[0] == 4 || so_long->player.action_code[1] == 4) && \
-	get_pgwc(so_long) > 0)
-		return (player_down_sprite(last_anim, so_long));
-	else if (so_long->player.jump == 0 && get_pgwc(so_long) > 0)
-		return (player_failling_sprite(last_anim, so_long));
+		return (player_hurt_sprite(last_anim, game));
+	else if (game->player.action_code[0] == 2 || game->player.action_code[1] == 2 || \
+	game->player.action_code[0] == 1 || game->player.action_code[1] == 1)
+		return (player_walk_sprite(last_anim, game));
+	else if ((game->player.action_code[0] == 4 || game->player.action_code[1] == 4) && \
+	get_pgwc(game) > 0)
+		return (player_down_sprite(last_anim, game));
+	else if (game->player.jump == 0 && get_pgwc(game) > 0)
+		return (player_failling_sprite(last_anim, game));
 	else
-		return (player_stay_sprite(last_anim, so_long));
+		return (player_stay_sprite(last_anim, game));
 }
 
 // Get the sprite that corresponds to the correct animation step
-int	*get_player_sprite(t_so_long *so_long)
+int	*get_player_image(t_game *game)
 {
 	static int	arr_pos;
 	static int	last_anim;
@@ -83,9 +83,9 @@ int	*get_player_sprite(t_so_long *so_long)
 	static int	atk_progress;
 	static int	hurt_progress;
 
-	if (so_long->player.action_code[2] == 5)
+	if (game->player.action_code[2] == 5)
 		atk_progress = 5;
-	if (so_long->player.tick_life == 1)
+	if (game->player.tick_life == 1)
 		hurt_progress = 5;
 	if (anim_inter == 5)
 	{
@@ -95,9 +95,9 @@ int	*get_player_sprite(t_so_long *so_long)
 		if (hurt_progress > 0)
 			hurt_progress--;
 		arr_pos = player_sprite_pos(atk_progress, hurt_progress, \
-		&last_anim, so_long);
+		&last_anim, game);
 	}
 	else
 		anim_inter++;
-	return (so_long->ps[arr_pos]);
+	return (game->ps[arr_pos]);
 }

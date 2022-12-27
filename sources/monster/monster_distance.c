@@ -39,24 +39,24 @@ static int	is_collision(char c, int type)
 }
 
 // Return the distance between the monster and the nearest obstacle on the right
-int	get_mrwc(t_monster *monster, t_so_long *so_long)
+int	get_mrwc(t_monster *monster, t_game *game)
 {
 	int			dist_coll;
 	t_monster	*m;
 
 	m = monster;
-	if (is_collision(so_long->map[m->c[1] / BPX][m->c[0] / BPX +1], 1))
+	if (is_collision(game->map[m->c[1] / BPX][m->c[0] / BPX +1], 1))
 	{
-		if (is_collision(so_long->map[(m->c[1]) / BPX][(m->c[0]) / BPX], 1))
+		if (is_collision(game->map[(m->c[1]) / BPX][(m->c[0]) / BPX], 1))
 			return (0);
 		dist_coll = BPX + (BPX * ((m->c[0]) / BPX) - m->c[0]) - 1;
 		if (dist_coll > MPX)
 			return (MPX);
 		return (dist_coll);
 	}
-	else if (is_collision(so_long->map[m->c[1] / BPX +1][m->c[0] / BPX +1], 0))
+	else if (is_collision(game->map[m->c[1] / BPX +1][m->c[0] / BPX +1], 0))
 	{
-		if (is_collision(so_long->map[(m->c[1]) / BPX +1][(m->c[0]) / BPX], 0))
+		if (is_collision(game->map[(m->c[1]) / BPX +1][(m->c[0]) / BPX], 0))
 			return (0);
 		dist_coll = BPX + (BPX * ((m->c[0]) / BPX) - m->c[0]) - 1;
 		if (dist_coll > MPX)
@@ -67,20 +67,20 @@ int	get_mrwc(t_monster *monster, t_so_long *so_long)
 }
 
 // Return the distance between the monster and the nearest obstacle on the left
-int	get_mlwc(t_monster *monster, t_so_long *so_long)
+int	get_mlwc(t_monster *monster, t_game *game)
 {
 	int			dist_coll;
 	t_monster	*m;
 
 	m = monster;
-	if (is_collision(so_long->map[(m->a[1]) / BPX][(m->a[0]) / BPX -1], 1))
+	if (is_collision(game->map[(m->a[1]) / BPX][(m->a[0]) / BPX -1], 1))
 	{
 		dist_coll = m->a[0] - (BPX * ((m->a[0]) / BPX));
 		if (dist_coll > MPX)
 			return (MPX);
 		return (dist_coll);
 	}
-	else if (is_collision(so_long->map[(m->a[1]) / BPX +1][(m->a[0]) / BPX -1], \
+	else if (is_collision(game->map[(m->a[1]) / BPX +1][(m->a[0]) / BPX -1], \
 		0))
 	{
 		dist_coll = m->a[0] - (BPX * ((m->a[0]) / BPX));

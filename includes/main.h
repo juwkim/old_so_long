@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 04:15:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 05:45:06 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define WINDOW_HEIGHT 768
 # define LIFE_NUMBER 7
 
-# define MOVE 0
-# define COLLECTABLE 1
+# define MOVE_IDX 0
+# define COLLECTABLE_IDX 1
 
 /*
 BPX : bloc px

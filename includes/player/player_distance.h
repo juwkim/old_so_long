@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   player_distance.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 15:23:13 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 05:43:28 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 06:24:33 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 06:25:48 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef PLAYER_DISTANCE_H
+# define PLAYER_DISTANCE_H
 
-# include "main.h"
+# include "player/player.h"
 
-enum {
-	EMPTY		= '0',
-	WALL		= '1',
-	PLAYER		= 'P',
-	EXIT		= 'E',
-	COLLECTABLE = 'C'
-};
-
-int	open_map(t_game *game, char *path);
-int	read_map(t_game *game, int fd);
-int	check_map(t_game *game);
-int	check_side(t_game *game);
+int	get_right_dist(t_player *p, char *map[]);
+int	get_left_dist(t_player *p, char *map[]);
+int	get_down_dist(t_player *p, char *map[]);
+int	get_up_dist(t_player *p, char *map[]);
 
 #endif

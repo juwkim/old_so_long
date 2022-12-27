@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 04:50:41 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 06:26:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	player_update(t_game *game)
 void	player_move_count_update(t_game *game)
 {
 	if (!is_equal(game->player.last_position, game->player.position))
-		++game->count[MOVE];
+		++game->count[MOVE_IDX];
 }
 
 // Draw the player block on the screen

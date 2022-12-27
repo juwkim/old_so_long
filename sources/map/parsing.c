@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 00:47:42 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 05:44:11 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_map(t_game *game)
 			idx = ft_strfind(game->map[i][j], "PCE10");
 			if (idx == -1)
 				return (0);
-			if (game->map[i][j] == 'P')
+			if (game->map[i][j] == PLAYER)
 			{
 				game->player.position.first = j * BPX;
 				game->player.position.second = i * BPX;
@@ -81,15 +81,15 @@ int	check_side(t_game *game)
 	i = -1;
 	while (++i < game->map_size.first)
 	{
-		if (game->map[i][0] != '1' || \
-		game->map[i][game->map_size.second - 1] != '1')
+		if (game->map[i][0] != WALL || \
+		game->map[i][game->map_size.second - 1] != WALL)
 			return (0);
 	}
 	j = -1;
 	while (++j < game->map_size.second)
 	{
-		if (game->map[0][j] != '1' || \
-		game->map[game->map_size.first - 1][j] != '1')
+		if (game->map[0][j] != WALL || \
+		game->map[game->map_size.first - 1][j] != WALL)
 			return (0);
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:24:20 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:57:24 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 07:14:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define WHITE 0xFFFFFF
 
 enum {
-	BLOCK	= 0,
-	WALL	= 1
+	BLOCK_IDX	= 0,
+	WALL_IDX	= 1
 };
 
 enum {

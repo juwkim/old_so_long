@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:08:53 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 07:28:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,157 +55,64 @@ int	player_sprite_pos(t_game *game, int attack_progress, int hurt_progress)
 		return (player_stay_sprite(player));
 }
 
-
-# recode jump in player
 int	player_jump_image(t_player *player)
 {
+	int	idx;
+
 	if (player->move_horizontal == MOVE_LEFT)
 	{
-		if (game->player.jump > 1)
-			i = 39;
-		else if (game->player.jump <= 1)
-			i = 40;
+		if (player->jump > 1)
+			idx = 39;
+		else
+			idx = 40;
 	}
 	else
 	{
-		if (game->player.jump > 1)
-			i = 12;
-		else if (game->player.jump <= 1)
-			i = 13;
+		if (player->jump > 1)
+			idx = 12;
+		else
+			idx = 13;
 	}
-	*last_anim = 1;
-	return (i);
+	player->last_image = 1;
+	return (idx);
 }
 
 // Return player failling sprite
 int	player_failling_sprite(t_player *player)
 {
-	static int	i;
+	int	idx;
 
-	if (game->player.direction == 0)
-		i = 44;
+	if (player->move_horizontal == MOVE_LEFT)
+		idx = 44;
 	else
-		i = 17;
-	*last_anim = 5;
-	return (i);
+		idx = 17;
+
+	player->last_image = 5;
+	return (idx);
 }
 
 // Return player stay sprite
 int	player_stay_sprite(t_player *player)
 {
-	static int	i;
+	static int	idx;
 
-	if (game->player.direction == 0)
+	if (player->move_horizontal == MOVE_LEFT)
 	{
-		if (*last_anim != 7)
-			i = 27;
-		else if (i > 26 && i < 34)
-			i++;
+		if (player->last_image != 7)
+			idx = 27;
+		else if (26 < idx && idx < 34)
+			idx++;
 		else
-			i = 27;
+			idx = 27;
 	}
-	else
 	{
-		if (*last_anim != 7)
-			i = 0;
-		else if (i > -1 && i < 7)
-			i++;
+		if (player->last_image != 7)
+			idx = 0;
+		else if (-1 < idx && idx < 7)
+			idx++;
 		else
-			i = 0;
+			idx = 0;
 	}
-	*last_anim = 7;
-	return (i);
-}
-
-int	player_attack_sprite(it_player *player)
-{
-	static int	i;
-
-	if (game->player.direction == 0)
-	{
-		if (*last_anim != 2)
-			i = 46;
-		else if (i > 45 && i < 49)
-			i++;
-		else
-			i = 46;
-	}
-	else
-	{
-		if (*last_anim != 2)
-			i = 19;
-		else if (i > 18 && i < 22)
-			i++;
-		else
-			i = 19;
-	}
-	*last_anim = 2;
-	return (i);
-}
-
-// Return player walk sprite
-int	player_walk_sprite(t_player *player)
-{
-	static int	i;
-
-	if (game->player.direction == 0)
-	{
-		if (*last_anim != 3)
-			i = 35;
-		else if (i > 34 && i < 38)
-			i++;
-		else
-			i = 35;
-	}
-	else
-	{
-		if (*last_anim != 3)
-			i = 8;
-		else if (i > 7 && i < 11)
-			i++;
-		else
-			i = 8;
-	}
-	*last_anim = 3;
-	return (i);
-}
-
-// Return player hurt sprite
-int	player_hurt_sprite(t_player *player)
-{
-	static int	i;
-
-	if (game->player.direction == 0)
-	{
-		if (*last_anim != 6)
-			i = 50;
-		else if (i > 49 && i < 53)
-			i++;
-		else
-			i = 50;
-	}
-	else
-	{
-		if (*last_anim != 6)
-			i = 23;
-		else if (i > 22 && i < 26)
-			i++;
-		else
-			i = 23;
-	}
-	*last_anim = 6;
-	return (i);
-}
-
-// Return player down sprite
-int	player_down_sprite(t_player *player)
-{
-	static int	i;
-
-	if (game->player.direction == 0)
-		i = 45;
-	else
-		i = 18;
-	*last_anim = 4;
-	return (i);
+	player->last_image = 7;
+	return (idx);
 }

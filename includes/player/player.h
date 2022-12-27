@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:05:38 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 07:17:28 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PLAYER_H
 
 # include "main.h"
+# include "map/parsing.h"
 
 /// @brief Structure for the player
 /*
@@ -53,6 +54,7 @@ typedef struct s_player
 	int		tick_life;
 	int		life_number;
 	int		last_image;
+	int		jump;
 }	t_player;
 
 void	player_update(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:19:01 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:08:10 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 # define PLAYER_H
 
 # include "main.h"
-# include "core/parsing.h"
+# include "core/map.h"
+# include "tools/point.h"
 
-/// @brief Structure for the player
-/*
-lpp : last pixel position (lpp[0] : x, lpp[1] : y)
-ac : actions code
-di : diagonal (1 : left, 2 : right)
-tl : tick life
-*/
+/// @brief 
+typedef struct s_player {
+	t_point	position;
+	t_point	last_position;
+	int		move_horizontal;
+	int		move_vertical;
+	int		jump;
+	int		attack;
+	int		tick_life;
+	int		life_number;
+	int		last_image;
+}	t_player;
 
 enum e_direction {
 	LEFT = 0,
@@ -41,21 +47,6 @@ enum e_move {
 	MOVE_UP,
 	MOVE_DOWN
 };
-
-typedef struct s_player
-{
-	t_point	position;
-	t_point	last_position;
-	int		move_horizontal;
-	int		move_vertical;
-	int		jump;
-	int		attack;
-	int		diagonal;
-	int		tick_life;
-	int		life_number;
-	int		last_image;
-	int		jump;
-}	t_player;
 
 void	player_update(t_game *game);
 void	player_move_count_update(t_game *game);

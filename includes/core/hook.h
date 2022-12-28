@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:16:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 04:02:25 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:57:11 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HOOK_H
 
 # include "main.h"
+# include "player/player.h"
 
 # define NO_EVENT_MASK 0
 

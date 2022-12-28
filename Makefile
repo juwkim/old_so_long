@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/23 13:45:47 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/28 13:56:21 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,18 @@ BUILD_DIR		=	build
 
 CORE_DIR 		=	core
 MONSTER_DIR 	=	monster
-OTHER_DIR		=	other
-PARSING_DIR 	=	parsing
 PLAYER_DIR		=	player
 TOOLS_DIR		=	tools
 
 # Define the source files
-SRCS_CORE		=	$(addprefix $(CORE_DIR)/, init.c main.c draw.c error.c hook.c sprite.c)
+SRCS_MAIN		=	main.c
+SRCS_CORE		=	$(addprefix $(CORE_DIR)/, collectable.c draw.c gate.c hook.c image.c init.c map.c)
 SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite.c)
-SRCS_OTHER		=	$(addprefix $(OTHER_DIR)/, wall.c background.c item.c gate.c fps.c hud.c)
-SRCS_PARSING	=	$(addprefix $(PARSING_DIR)/, parsing1.c parsing2.c)
-SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player.c player_position.c player_action.c player_distance.c player_mouvement.c player_gravity.c player_draw.c player_count_movement.c player_sprite1.c player_sprite2.c)
+SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance.c player_image.c player_image2.c player_move.c player.c)
+SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error.c point.c time_stamp.c)
 
-SRCS_TOTAL		=	$(SRCS_CORE) $(SRCS_MONSTER) $(SRCS_OTHER) $(SRCS_PARSING) $(SRCS_PLAYER)
+SRCS_MONSTER	=
+SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_MONSTER) $(SRCS_PLAYER) $(SRCS_TOOLS)
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRCS_TOTAL))
 OBJS			=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(SRCS_TOTAL))
@@ -52,6 +51,10 @@ bonus: all
 $(NAME) : $(LDLIBS) $(OBJS)
 	@$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 	@echo "${GREEN}> Compilation of the so_long is success 🎉${END}"
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(BUILD_DIR)/$(CORE_DIR)/%.o: $(SRC_DIR)/$(CORE_DIR)/%.c
 	@mkdir -p $(dir $@)

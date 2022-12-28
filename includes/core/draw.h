@@ -15,8 +15,8 @@
 
 # include "main.h"
 # include "core/image.h"
-# include "gate/gate.h"
-# include "collectable/collectable.h"
+# include "core/gate.h"
+# include "core/collectable.h"
 
 # define STATUS_POS_FIRST 920
 # define STATUS_POS_SECOND 10

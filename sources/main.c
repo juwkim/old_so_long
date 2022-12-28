@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:37:28 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:33:14 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static int	game_loop(t_game *game)
 		draw_background(game);
 		draw_status(game);
 		player_update(game);
-		// monster_update(game);
 	}
 	return (1);
 }

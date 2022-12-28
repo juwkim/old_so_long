@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 05:18:12 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 12:06:20 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:51:07 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft.h"
+# include "common/libft.h"
 
 typedef struct s_opt
 {

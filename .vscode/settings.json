@@ -26,6 +26,11 @@
         "__locale": "c",
         "__tuple": "c",
         "ios": "c",
-        "player_move.h": "c"
+        "player_move.h": "c",
+        "gate.h": "c",
+        "map.h": "c",
+        "main.h": "c",
+        "libft.h": "c",
+        "fcntl.h": "c"
     }
 }

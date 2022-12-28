@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:28:21 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:32:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ int	player_failling_sprite(t_player *player)
 		idx = 44;
 	else
 		idx = 17;
-
 	player->last_image = 5;
 	return (idx);
 }

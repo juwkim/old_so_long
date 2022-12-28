@@ -6,14 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 05:45:06 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:04:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-# include <fcntl.h>
 # include <stdlib.h>
 
 # include "common/ft_printf.h"
@@ -23,8 +22,8 @@
 
 # include "core/hook.h"
 # include "core/draw.h"
-# include "tools/point.h"
 # include "player/player.h"
+# include "tools/point.h"
 
 # define WINDOW_TITLE "game"
 # define WINDOW_WIDTH 1366
@@ -33,6 +32,11 @@
 
 # define MOVE_IDX 0
 # define COLLECTABLE_IDX 1
+
+enum e_bool {
+	FALSE = 0,
+	TRUE = 1
+};
 
 /*
 BPX : bloc px
@@ -43,37 +47,15 @@ HPX : hitbox px
 EHPX : extra hitbox
 */
 
-# define BPX 100
-# define MPX 8
-# define GPX 14
-# define DPX 20
-# define JPX 40
-# define HPX 15
-# define EHPX 25
-
-enum e_bool {
-	FALSE = 0,
-	TRUE = 1
+enum e_px {
+	MPX = 8,
+	GPX = 14,
+	HPX = 15,
+	DPX = 20,
+	EHPX = 25,
+	JPX = 40,
+	BPX = 100
 };
-
-/// @brief Struct that contains all the data of the game
-/*
-mlx : mlx pointer
-window : window pointer
-gw : game width
-gh : game height
-map_fd : map file descriptor
-lst_map : linked list that contains datas map
-map : map (2D array)
-lm : last millitimestamp
-fps : frame per second
-po : player offset
-go : global offset
-nc : number collectable
-nm : number movements
-player : player struct
-monster : monster struct
-*/
 
 typedef struct s_game {
 	void		*mlx;

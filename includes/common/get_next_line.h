@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 00:47:18 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 12:06:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:51:27 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <limits.h>
-# include "libft.h"
+# include "common/libft.h"
 
-int     get_line(char *buf, char **rest, ssize_t read_size, char **rtn);
-int     check_rest(char **rest, char **rtn);
-char    *get_next_line(int fd);
+int		get_line(char *buf, char **rest, ssize_t read_size, char **rtn);
+int		check_rest(char **rest, char **rtn);
+char	*get_next_line(int fd);
 
 #endif

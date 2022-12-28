@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:19:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:12:04 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:22:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	draw_block(t_game *game, void *block, int first, int second)
 	const int	x = first * BPX + game->offset_window.first;
 	const int	y = second * BPX + game->offset_window.second;
 
+	//ft_printf("%d %d\n", x, y);
 	if (x < -BPX || y < -BPX || x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
 		return ;
-	//ft_printf("%d %d\n", x, y);
-	mlx_put_image_to_window(game->mlx, game->window, block, first, second);
+	mlx_put_image_to_window(game->mlx, game->window, block, x, y);
 }
 
 void	draw_background(t_game *game)
@@ -28,17 +28,17 @@ void	draw_background(t_game *game)
 	int	second;
 	int	first;
 
-	mlx_clear_window(game->mlx, game->window);
+	//mlx_clear_window(game->mlx, game->window);
 	second = 0;
 	while (second < game->map_size.second)
 	{
 		first = 0;
 		while (first < game->map_size.first)
-		{
+		{	
 			if (game->map[second][first] == CHAR_WALL)
-				draw_block(game, game->image[OTHER][WALL_IDX], first, second);
+				draw_block(game, game->image[BLOCK][WALL_IDX], first, second);
 			else
-				draw_block(game, game->image[OTHER][BLOCK_IDX], first, second);
+				draw_block(game, game->image[BLOCK][BLOCK_IDX], first, second);
 			if (game->map[second][first] == CHAR_COLLECTABLE)
 				draw_block(game, get_collectable_image(game), first, second);
 			else if (game->map[second][first] == CHAR_EXIT)
@@ -61,7 +61,7 @@ void	draw_movement(t_game *game)
 {
 	char	*cnt_move;
 
-	cnt_move = ft_itoa(game->count[MOVE_IDX]);
+	cnt_move = ft_itoa(game->count[MOVE]);
 	mlx_put_image_to_window(game->mlx, game->window, \
 		game->image[OTHER][PAW], STATUS_POS_FIRST + 20, STATUS_POS_SECOND + 7);
 	mlx_string_put(game->mlx, game->window, \

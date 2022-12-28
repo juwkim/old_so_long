@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:55:13 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:25:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[])
 	init_player(&game.player);
 	init_camera(&game);
 	// create_monster(&game);
-	mlx_hook(game.window, ON_KEYDOWN, NO_EVENT_MASK, key_down, &game);
+	mlx_hook(game.window, ON_KEYDOWN, NO_EVENT_MASK, key_down, &game.player);
 	mlx_hook(game.window, ON_KEYUP, NO_EVENT_MASK, key_up, &game);
 	mlx_hook(game.window, ON_DESTROY, NO_EVENT_MASK, destroy, &game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
@@ -34,7 +34,7 @@ int	game_loop(t_game *game)
 {
 	const long long	now = time_stamp();
 
-	if (now - game->time_stamp > 15)
+	if (now - game->time_stamp > 50)
 	{
 		game->time_stamp = now;
 		gate_collision(game);

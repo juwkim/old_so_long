@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:07:44 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:42:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	check_map(t_game *game)
 			elements[idx]++;
 		}
 	}
-	game->count[COLLECTABLE_IDX] = elements[1];
+	game->count[COLLECTABLE] = elements[1];
 	return (elements[0] == 1 && elements[1] >= 1 && elements[2] == 1);
 }
 

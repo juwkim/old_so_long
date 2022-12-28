@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:38:19 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:32:16 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	player_update(t_game *game)
 	game->player.last_position.first = game->player.position.first;
 	game->player.last_position.second = game->player.position.second;
 	player_move_horizontal(&game->player, game->map);
-	player_move_vertical(&game->player, game->map);
-	player_move_up(&game->player, game->map);
-	player_move_down(&game->player, game->map);
-	player_move_count_update(game);
+	// player_move_vertical(&game->player, game->map);
+	// player_move_up(&game->player, game->map);
+	// player_move_down(&game->player, game->map);
+	// player_move_count_update(game);
 	player_draw(game);
 }
 
 void	player_move_count_update(t_game *game)
 {
 	if (!is_equal(game->player.last_position, game->player.position))
-		++game->count[MOVE_IDX];
+		++game->count[MOVE];
 }
 
 // Draw the player block on the screen

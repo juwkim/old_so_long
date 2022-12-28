@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:15:40 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:23:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:31:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define WINDOW_HEIGHT 768
 # define LIFE_NUMBER 7
 
-# define MOVE_IDX 0
-# define COLLECTABLE_IDX 1
+# define MOVE 0
+# define COLLECTABLE 1
 
 enum e_bool {
 	FALSE = 0,
@@ -67,16 +67,15 @@ typedef struct s_player {
 typedef struct s_game {
 	void		*mlx;
 	void		*window;
-	t_point		map_size;
 	char		*map[100];
 	int			count[2];
 	long long	time_stamp;
+	t_point		map_size;
 	t_point		offset_window;
 	t_point		offset_game;
 	t_list		*monsters;
 	t_player	player;
 	void		*image[6][54];
 }	t_game;
-
 
 #endif

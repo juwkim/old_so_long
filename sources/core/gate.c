@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:20 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 14:52:34 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:42:35 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	*get_gate_image(t_game *game)
 	static int	cnt;
 
 	cnt = (cnt + 1) % GATE_UPDATE_CYCLE;
-	if (cnt == 0 && game->count[COLLECTABLE_IDX] == 0)
+	if (cnt == 0 && game->count[COLLECTABLE] == 0)
 		idx = ft_min(idx + 1, GATE_NUMBER - 1);
 	return (game->image[GATE][idx]);
 }
 
 void	gate_action(t_game *game, int first, int second)
 {
-	if (game->count[COLLECTABLE_IDX] == 0 && game->map[first][second] == 'E')
+	if (game->count[COLLECTABLE] == 0 && game->map[first][second] == CHAR_EMPTY)
 	{
 		ft_printf("Success !");
 		destroy(game);

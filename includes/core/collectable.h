@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:51:05 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:22:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:40:47 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COLLECTABLE_H
 
 # include "config.h"
+# include "core/map.h"
 # include "core/image.h"
 
 # define COLLECTABLE_UPDATE_CYCLE 7;

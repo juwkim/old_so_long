@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:33:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:50:31 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int argc, char *argv[])
 	init_game(&game);
 	init_map(&game, argc, argv);
 	init_image(&game);
-	init_player(&game);
+	init_player(&game.player);
 	init_camera(&game);
-	create_monster(&game);
+	// create_monster(&game);
 	mlx_hook(game.window, ON_KEYDOWN, NO_EVENT_MASK, key_down, &game);
 	mlx_hook(game.window, ON_KEYUP, NO_EVENT_MASK, key_up, &game);
 	mlx_hook(game.window, ON_DESTROY, NO_EVENT_MASK, destroy, &game);
@@ -30,7 +30,7 @@ int	main(int argc, char *argv[])
 	exit(EXIT_SUCCESS);
 }
 
-static int	game_loop(t_game *game)
+int	game_loop(t_game *game)
 {
 	const long long	now = time_stamp();
 

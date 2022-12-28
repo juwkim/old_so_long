@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:24:20 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:14:51 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:23:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_H
 # define DRAW_H
 
-# include "main.h"
+# include "config.h"
 # include "core/image.h"
 # include "core/gate.h"
 # include "core/collectable.h"

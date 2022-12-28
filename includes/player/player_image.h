@@ -6,13 +6,17 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:55 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:19:24 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:33:03 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_IMAGE_H
 # define PLAYER_IMAGE_H
 
+# include "config.h"
+# include "core/image.h"
+# include "player/player_distance.h"
+# include "player/player_image2.h"
 # include "player/player.h"
 
 # define UPDATE_CYCLE 5

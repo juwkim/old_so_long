@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:12 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:14:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:49:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools/time_stamp.h"
 
 // Get timestamp in milliseconds
-long long	millitimestamp(void)
+long long	time_stamp(void)
 {
 	struct timeval	timeval;
 	long long		microtime;

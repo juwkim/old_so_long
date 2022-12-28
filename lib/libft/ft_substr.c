@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 04:57:50 by juwkim            #+#    #+#             */
-/*   Updated: 2022/08/29 04:57:51 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:02:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, int start, int len)
 {
 	char	*str;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	if (s == 0)

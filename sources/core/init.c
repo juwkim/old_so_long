@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:15:51 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:58:38 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	init_map(t_game *game, int argc, char *argv[])
 
 	if (argc != 2)
 		error(0);
-	fd = open_map(argv[1], game);
+	fd = open_map(argv[1]);
 	if (fd <= 0)
 		error(1);
-	if (!read_map(game, fd) || !check_map(game) || !check_wall(game))
+	if (!read_map(game, fd) || !check_map(game) || !check_side(game))
 		error(2);
 	return (1);
 }

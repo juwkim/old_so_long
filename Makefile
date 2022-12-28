@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/28 13:56:21 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/28 15:47:59 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ CFLAGS			=	-Wall -Wextra -Werror -MMD -O3
 LDFLAGS 		=	-framework OpenGL -framework Appkit
 LIBMLX			=	libmlx.dylib
 LDLIBS 			=	lib/ft_printf.a lib/get_next_line.a lib/libft.a $(LIBMLX)
+
+all: $(NAME)
 
 # Define the directories
 SRC_DIR			=	sources
@@ -30,7 +32,7 @@ TOOLS_DIR		=	tools
 # Define the source files
 SRCS_MAIN		=	main.c
 SRCS_CORE		=	$(addprefix $(CORE_DIR)/, collectable.c draw.c gate.c hook.c image.c init.c map.c)
-SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite.c)
+SRCS_MONSTER	=	# $(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite.c)
 SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance.c player_image.c player_image2.c player_move.c player.c)
 SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error.c point.c time_stamp.c)
 
@@ -45,7 +47,6 @@ DEPS			=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(SRCS_TOTAL))
 # Define the target
 NAME			=	so_long
 
-all: $(NAME)
 bonus: all
 # Define the target and dependencies
 $(NAME) : $(LDLIBS) $(OBJS)

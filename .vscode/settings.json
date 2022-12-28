@@ -31,6 +31,20 @@
         "map.h": "c",
         "main.h": "c",
         "libft.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "player.h": "c",
+        "point.h": "c",
+        "hook.h": "c",
+        "time_stamp.h": "c",
+        "mlx.h": "c",
+        "config.h": "c",
+        "collectable.h": "c",
+        "draw.h": "c",
+        "init.h": "c",
+        "player_distance.h": "c",
+        "player_image.h": "c",
+        "image.h": "c",
+        "player_image2.h": "c",
+        "error.h": "c"
     }
 }

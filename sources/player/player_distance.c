@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 06:26:27 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:04:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_right_dist(t_player *p, char *map[])
 	{
 		if (map[second][(first - HPX) / BPX] == WALL)
 			return (-EHPX);
-		return (min(MPX, BPX - first % BPX));
+		return (ft_min(MPX, BPX - first % BPX));
 	}
 	return (MPX);
 }
@@ -35,7 +35,7 @@ int	get_left_dist(t_player *p, char *map[])
 	{
 		if (map[second][(first + HPX) / BPX] == WALL)
 			return (-EHPX);
-		return (min(MPX, BPX - first % BPX));
+		return (ft_min(MPX, BPX - first % BPX));
 	}
 	return (MPX);
 }
@@ -47,7 +47,7 @@ int	get_down_dist(t_player *p, char *map[])
 
 	if (map[second + 1][first / BPX] == WALL ||
 		map[second + 2][(first - HPX) / BPX] == WALL)
-		return (min(GPX, BPX - second % BPX));
+		return (ft_min(GPX, BPX - second % BPX));
 	return (GPX);
 }
 
@@ -58,6 +58,6 @@ int	get_up_dist(t_player *p, char *map[])
 
 	if (map[second - 1][first / BPX] == WALL ||
 		map[second - 2][(first + HPX) / BPX] == WALL)
-		return (min(JPX, BPX - second % BPX));
+		return (ft_min(JPX, BPX - second % BPX));
 	return (JPX);
 }

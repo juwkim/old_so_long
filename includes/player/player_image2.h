@@ -6,13 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 07:29:03 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:37:01 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:33:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_IMAGE2_H
 # define PLAYER_IMAGE2_H
 
+# include "config.h"
 # include "player/player.h"
 
 int	player_attack_sprite(t_player *player);

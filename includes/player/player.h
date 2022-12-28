@@ -6,38 +6,21 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 14:08:10 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:39:00 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_H
 # define PLAYER_H
 
-# include "main.h"
+# include "config.h"
 # include "core/map.h"
-# include "tools/point.h"
-
-/// @brief 
-typedef struct s_player {
-	t_point	position;
-	t_point	last_position;
-	int		move_horizontal;
-	int		move_vertical;
-	int		jump;
-	int		attack;
-	int		tick_life;
-	int		life_number;
-	int		last_image;
-}	t_player;
+# include "player/player_image.h"
+# include "player/player_move.h"
 
 enum e_direction {
 	LEFT = 0,
 	RIGHT = 1
-};
-
-enum e_bool {
-	FALSE = 0,
-	TRUE = 1
 };
 
 enum e_move {

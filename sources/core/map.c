@@ -6,13 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:23:07 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:46:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/map.h"
 
-int	open_map(t_game *game, char *path)
+int	open_map(char *path)
 {
 	const int	path_len = ft_strlen(path);
 
@@ -69,7 +69,7 @@ int	check_map(t_game *game)
 			elements[idx]++;
 		}
 	}
-	game->count[COLLECTABLE] = elements[1];
+	game->count[COLLECTABLE_IDX] = elements[1];
 	return (elements[0] == 1 && elements[1] >= 1 && elements[2] == 1);
 }
 
@@ -79,17 +79,17 @@ int	check_side(t_game *game)
 	int	j;
 
 	i = -1;
-	while (++i < game->map_size.first)
+	while (++i < game->map_size.second)
 	{
 		if (game->map[i][0] != WALL || \
-		game->map[i][game->map_size.second - 1] != WALL)
+		game->map[i][game->map_size.first - 1] != WALL)
 			return (0);
 	}
 	j = -1;
-	while (++j < game->map_size.second)
+	while (++j < game->map_size.first)
 	{
 		if (game->map[0][j] != WALL || \
-		game->map[game->map_size.first - 1][j] != WALL)
+		game->map[game->map_size.second - 1][j] != WALL)
 			return (0);
 	}
 	return (1);

@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:35:09 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:58:45 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:19:37 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_H
 # define IMAGE_H
 
-# include "main.h"
+# include "config.h"
 
 enum {
 	BLOCK_NUMBER = 2,

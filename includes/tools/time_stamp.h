@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:13:46 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:14:48 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 14:49:37 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include <sys/time.h>
 
-long long	millitimestamp(void);
+long long	time_stamp(void);
 
 #endif

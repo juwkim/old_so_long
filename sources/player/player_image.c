@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 13:32:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:31:36 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	*get_player_image(t_game *game)
 	cnt = (cnt + 1) % UPDATE_CYCLE;
 	if (cnt == 0)
 	{
-		attack_progress = min(attack_progress - 1, 0);
-		hurt_progress = min(hurt_progress - 1, 0);
+		attack_progress = ft_min(attack_progress - 1, 0);
+		hurt_progress = ft_min(hurt_progress - 1, 0);
 		idx = player_sprite_pos(game, attack_progress, hurt_progress);
 	}
 	return (game->image[CAT][idx]);
@@ -35,8 +35,9 @@ int	*get_player_image(t_game *game)
 
 int	player_sprite_pos(t_game *game, int attack_progress, int hurt_progress)
 {
-	const t_player	*player = &game->player;
+	t_player	*player;
 
+	player = &game->player;
 	if (player->move_vertical == MOVE_UP)
 		return (player_jump_image(player));
 	else if (attack_progress)

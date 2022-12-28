@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:59:51 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 00:38:27 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:20:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MONSTER_H
 # define MONSTER_H
 
-# include "main.h"
+# include "config.h"
 
 # define MOSTER_FREQUENCY 10
 

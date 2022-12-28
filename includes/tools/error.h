@@ -14,6 +14,7 @@
 # define ERROR_H
 
 # include <stdlib.h>
+# include "config.h"
 
 void	error(int error_n);
 

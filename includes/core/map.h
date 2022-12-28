@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:23:13 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 14:05:37 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:20:13 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MAP_H
 
 # include <fcntl.h>
-# include "main.h"
+# include "config.h"
 
 enum {
 	EMPTY		= '0',
@@ -24,7 +24,7 @@ enum {
 	COLLECTABLE = 'C'
 };
 
-int	open_map(t_game *game, char *path);
+int	open_map(char *path);
 int	read_map(t_game *game, int fd);
 int	check_map(t_game *game);
 int	check_side(t_game *game);

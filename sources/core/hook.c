@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:24 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:15:17 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:39:45 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ int	key_down(int keycode, t_player *p)
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 		p->move_horizontal = MOVE_RIGHT;
 	else if (keycode == KEY_UP || keycode == KEY_W || keycode == KEY_SPACE)
-		p->move_vertical = MOVE_UP;
+	{
+		if (p->move_vertical == MOVE_STAY)
+			p->move_vertical = MOVE_UP;
+	}
 	else if (keycode == KEY_DOWN || keycode == KEY_S)
-		p->move_vertical = MOVE_DOWN;
+	{
+		if (p->move_vertical == MOVE_STAY)
+			p->move_vertical = MOVE_DOWN;
+	}
 	return (0);
 }
 
@@ -39,9 +45,6 @@ int	key_up(int keycode, t_game *game)
 	else if (keycode == KEY_A || keycode == KEY_LEFT || \
 			keycode == KEY_D || keycode == KEY_RIGHT)
 		p->move_horizontal = MOVE_STAY;
-	else if (keycode == KEY_UP || keycode == KEY_W || keycode == KEY_SPACE || \
-			keycode == KEY_DOWN || keycode == KEY_S)
-		p->move_vertical = MOVE_STAY;
 	return (0);
 }
 

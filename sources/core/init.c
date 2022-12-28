@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:28:23 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:58:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,4 @@ void	init_camera(t_game *game)
 {
 	game->offset_game.first = 0;
 	game->offset_game.second = 0;
-	if (game->map_size.first < 15)
-		game->offset_game.first = (14 - game->map_size.first) / 2 * BPX;
-	if (game->map_size.second < 8)
-		game->offset_game.second = (7 - game->map_size.second) / 2 * BPX;
 }

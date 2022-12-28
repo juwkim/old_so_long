@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:25:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:16:35 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,64 @@
 
 int	get_right_dist(t_player *p, char *map[])
 {
-	const int	y = p->position.first + BPX;
-	const int	x1 = (p->position.second + BPX * 1 / 6) / BPX;
-	const int	x2 = (p->position.second + BPX * 3 / 6) / BPX;
-	const int	x3 = (p->position.second + BPX * 5 / 6) / BPX;
+	const int	y = p->position.first + BLOCK_SIZE;
+	const int	x1 = (p->position.second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	x2 = (p->position.second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	x3 = (p->position.second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = y;
-	while (map[x1][cur / BPX] != CHAR_WALL && \
-			map[x2][cur / BPX] != CHAR_WALL && \
-			map[x3][cur / BPX] != CHAR_WALL)
-		cur += 10;
-	return (ft_min(8, cur - y));
+	while (map[x1][cur / BLOCK_SIZE] != CHAR_WALL && \
+			map[x2][cur / BLOCK_SIZE] != CHAR_WALL && \
+			map[x3][cur / BLOCK_SIZE] != CHAR_WALL)
+		cur += SEARCH_STAP;
+	return (ft_min(HORIZONTAL_SPEED, cur - y));
 }
 
 int	get_left_dist(t_player *p, char *map[])
 {
 	const int	y = p->position.first;
-	const int	x1 = (p->position.second + BPX * 1 / 6) / BPX;
-	const int	x2 = (p->position.second + BPX * 3 / 6) / BPX;
-	const int	x3 = (p->position.second + BPX * 5 / 6) / BPX;
+	const int	x1 = (p->position.second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	x2 = (p->position.second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	x3 = (p->position.second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = y;
-	while (map[x1][cur / BPX] != CHAR_WALL && \
-			map[x2][cur / BPX] != CHAR_WALL && \
-			map[x3][cur / BPX] != CHAR_WALL)
-		cur -= 10;
-	return (ft_min(8, y - cur));
+	while (map[x1][cur / BLOCK_SIZE] != CHAR_WALL && \
+			map[x2][cur / BLOCK_SIZE] != CHAR_WALL && \
+			map[x3][cur / BLOCK_SIZE] != CHAR_WALL)
+		cur -= SEARCH_STAP;
+	return (ft_min(HORIZONTAL_SPEED, y - cur));
 }
 
 int	get_down_dist(t_player *p, char *map[])
 {
-	const int	x = p->position.second + BPX;
-	const int	y1 = (p->position.first + BPX * 1 / 6) / BPX;
-	const int	y2 = (p->position.first + BPX * 3 / 6) / BPX;
-	const int	y3 = (p->position.first + BPX * 5 / 6) / BPX;
+	const int	x = p->position.second + BLOCK_SIZE;
+	const int	y1 = (p->position.first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	y2 = (p->position.first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	y3 = (p->position.first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = x;
-	while (map[cur / BPX][y1] != CHAR_WALL && \
-			map[cur / BPX][y2] != CHAR_WALL && \
-			map[cur / BPX][y3] != CHAR_WALL)
-		cur += 10;
-	return (ft_min(8, cur - x));
+	while (map[cur / BLOCK_SIZE][y1] != CHAR_WALL && \
+			map[cur / BLOCK_SIZE][y2] != CHAR_WALL && \
+			map[cur / BLOCK_SIZE][y3] != CHAR_WALL)
+		cur += SEARCH_STAP;
+	return (ft_min(VERTICAL_SPEED, cur - x));
 }
 
 int	get_up_dist(t_player *p, char *map[])
 {
 	const int	x = p->position.second;
-	const int	y1 = (p->position.first + BPX * 1 / 6) / BPX;
-	const int	y2 = (p->position.first + BPX * 3 / 6) / BPX;
-	const int	y3 = (p->position.first + BPX * 5 / 6) / BPX;
+	const int	y1 = (p->position.first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	y2 = (p->position.first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	y3 = (p->position.first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = x;
-	while (map[cur / BPX][y1] != CHAR_WALL && \
-			map[cur / BPX][y2] != CHAR_WALL && \
-			map[cur / BPX][y3] != CHAR_WALL)
-		cur -= 10;
-	return (ft_min(8, x - cur));
+	while (map[cur / BLOCK_SIZE][y1] != CHAR_WALL && \
+			map[cur / BLOCK_SIZE][y2] != CHAR_WALL && \
+			map[cur / BLOCK_SIZE][y3] != CHAR_WALL)
+		cur -= SEARCH_STAP;
+	return (ft_min(VERTICAL_SPEED, x - cur));
 }

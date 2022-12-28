@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:15:40 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 18:04:53 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:04:20 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,16 @@
 # define MOVE 0
 # define COLLECTABLE 1
 
+# define MAIN_UPDATE_CYCLE	15
+
+# define BLOCK_SIZE			100
+# define MARGIN				20
+# define HORIZONTAL_SPEED	8
+# define VERTICAL_SPEED		15
+
 enum e_bool {
 	FALSE = 0,
 	TRUE = 1
-};
-
-/*
-BPX : bloc px
-MPX : movement px
-GPX : ground px
-JPX : jump px
-HPX : hitbox px
-EHPX : extra hitbox
-*/
-
-# define MAIN_UPDATE_CYCLE 15
-
-enum e_px {
-	MPX = 8,
-	GPX = 14,
-	HPX = 15,
-	DPX = 20,
-	EHPX = 25,
-	JPX = 40,
-	BPX = 100
 };
 
 typedef struct s_player {

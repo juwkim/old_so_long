@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:42:51 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:00:10 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	check_map(t_game *game)
 				return (0);
 			if (game->map[i][j] == CHAR_PLAYER)
 			{
-				game->player.position.first = j * BPX;
-				game->player.position.second = i * BPX;
+				game->player.position.first = j * BLOCK_SIZE;
+				game->player.position.second = i * BLOCK_SIZE;
 			}
 			elements[idx]++;
 		}

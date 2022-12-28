@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:44 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:46:56 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:00:02 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	load_image(t_game *game, char *name, int sprite_number, int type)
 
 	ft_memcpy(path, name, name_len);
 	idx = -1;
-	img_size = BPX;
+	img_size = BLOCK_SIZE;
 	while (++idx < sprite_number)
 	{
 		idx_str = ft_itoa(idx);

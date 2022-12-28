@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:52:00 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:58:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:13:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,14 @@ int	*get_collectable_image(t_game *game)
 	return (game->image[COIN][idx]);
 }
 
-void	collectable_action(t_game *game, int x, int y)
-{
-	if (game->map[x][y] == CHAR_COLLECTABLE)
-	{
-		game->map[x][y] = CHAR_EMPTY;
-		--game->count[COLLECTABLE];
-	}
-}
-
 void	collectable_collision(t_game *game)
 {
-	const int		y = game->player.position.first;
-	const int		x = game->player.position.second;
+	const int		y = game->player.position.first + BLOCK_SIZE / 2;
+	const int		x = game->player.position.second + BLOCK_SIZE / 2;
 
-	collectable_action(game, (x + HPX) / BPX, (y + HPX) / BPX);
-	collectable_action(game, (x + BPX - HPX) / BPX, (y + HPX) / BPX);
-	collectable_action(game, (x + HPX) / BPX, (y + BPX - HPX) / BPX);
-	collectable_action(game, (x + BPX - HPX) / BPX, (y + BPX - HPX) / BPX);
+	if (game->map[x / BLOCK_SIZE][y / BLOCK_SIZE] == CHAR_COLLECTABLE)
+	{
+		game->map[x / BLOCK_SIZE][y / BLOCK_SIZE] = CHAR_EMPTY;
+		--game->count[COLLECTABLE];
+	}
 }

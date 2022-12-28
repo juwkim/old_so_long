@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:30:35 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:07:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	*get_player_image(t_game *game)
 		hurt_progress = ft_max(hurt_progress - 1, 0);
 		idx = player_sprite_pos(game, attack_progress, hurt_progress);
 	}
-	ft_printf("%d\n", idx);
 	return (game->image[CAT][idx]);
 }
 

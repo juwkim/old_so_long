@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 19:57:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:25:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	get_right_dist(t_player *p, char *map[])
 {
 	const int	y = p->position.first + BPX;
-	const int	x1 = p->position.second / BPX;
-	const int	x2 = (p->position.second + BPX / 3) / BPX;
-	const int	x3 = (p->position.second + BPX * 2 / 3) / BPX;
+	const int	x1 = (p->position.second + BPX * 1 / 6) / BPX;
+	const int	x2 = (p->position.second + BPX * 3 / 6) / BPX;
+	const int	x3 = (p->position.second + BPX * 5 / 6) / BPX;
 	int			cur;
 
 	cur = y;
@@ -31,9 +31,9 @@ int	get_right_dist(t_player *p, char *map[])
 int	get_left_dist(t_player *p, char *map[])
 {
 	const int	y = p->position.first;
-	const int	x1 = p->position.second / BPX;
-	const int	x2 = (p->position.second + BPX / 3) / BPX;
-	const int	x3 = (p->position.second + BPX * 2 / 3) / BPX;
+	const int	x1 = (p->position.second + BPX * 1 / 6) / BPX;
+	const int	x2 = (p->position.second + BPX * 3 / 6) / BPX;
+	const int	x3 = (p->position.second + BPX * 5 / 6) / BPX;
 	int			cur;
 
 	cur = y;
@@ -47,9 +47,9 @@ int	get_left_dist(t_player *p, char *map[])
 int	get_down_dist(t_player *p, char *map[])
 {
 	const int	x = p->position.second + BPX;
-	const int	y1 = p->position.first / BPX;
-	const int	y2 = (p->position.first + BPX / 3) / BPX;
-	const int	y3 = (p->position.first + BPX * 2 / 3) / BPX;
+	const int	y1 = (p->position.first + BPX * 1 / 6) / BPX;
+	const int	y2 = (p->position.first + BPX * 3 / 6) / BPX;
+	const int	y3 = (p->position.first + BPX * 5 / 6) / BPX;
 	int			cur;
 
 	cur = x;
@@ -63,9 +63,9 @@ int	get_down_dist(t_player *p, char *map[])
 int	get_up_dist(t_player *p, char *map[])
 {
 	const int	x = p->position.second;
-	const int	y1 = p->position.first / BPX;
-	const int	y2 = (p->position.first + BPX / 3) / BPX;
-	const int	y3 = (p->position.first + BPX * 2 / 3) / BPX;
+	const int	y1 = (p->position.first + BPX * 1 / 6) / BPX;
+	const int	y2 = (p->position.first + BPX * 3 / 6) / BPX;
+	const int	y3 = (p->position.first + BPX * 5 / 6) / BPX;
 	int			cur;
 
 	cur = x;

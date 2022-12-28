@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 02:51:56 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:23:15 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 20:31:28 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 20:31:59 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools/point.h"
-
-int	is_equal(t_point a, t_point b)
+int	ft_max(int a, int b)
 {
-	return (a.first == b.first && a.second == b.second);
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }

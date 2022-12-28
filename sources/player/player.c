@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 19:48:36 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:28:59 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	player_update(t_game *game)
 	player_move_horizontal(&game->player, game->map);
 	player_move_vertical(&game->player, game->map);
 	player_move_up(&game->player, game->map);
-	//player_move_down(&game->player, game->map);
+	player_move_down(&game->player, game->map);
 	player_move_count_update(game);
 	player_draw(game);
 }
@@ -54,5 +54,4 @@ void	player_draw(t_game *game)
 		p->position.first + game->offset_window.first + \
 		game->offset_game.first, p->position.second + \
 		game->offset_window.second + game->offset_game.second);
-	//get_player_image(game)
 }

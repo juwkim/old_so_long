@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:31:59 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 18:49:38 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:19:47 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ void	player_move_vertical(t_player *p, char *map[])
 
 void	player_move_up(t_player *p, char *map[])
 {
-	if (p->move_vertical == MOVE_UP && p->jump == 0 \
-			&& get_down_dist(p, map) == 0)
-		p->jump = 10;
+	if (p->move_vertical == MOVE_UP && p->jump == 0)
+		p->jump = 20;
 	if (p->jump > 0)
 	{
 		p->position.second -= get_up_dist(p, map);
@@ -44,6 +43,6 @@ void	player_move_up(t_player *p, char *map[])
 
 void	player_move_down(t_player *p, char *map[])
 {
-	if (p->move_vertical != MOVE_DOWN && p->jump == 0)
+	if (p->move_vertical != MOVE_UP)
 		p->position.second += get_down_dist(p, map);
 }

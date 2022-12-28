@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:12:50 by youjeon           #+#    #+#             */
-/*   Updated: 2022/12/28 15:02:13 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:31:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 
 t_list				*ft_lstnew(void *content);

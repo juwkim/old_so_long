@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:42:44 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 20:28:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	init_player(t_player *player)
 	player->jump = 0;
 	player->tick_life = 50;
 	player->life_number = LIFE_NUMBER;
-	player->attack = 0;
+	player->attack = FALSE;
 	player->move_horizontal = MOVE_STAY;
 	player->move_vertical = MOVE_STAY;
 	return (0);

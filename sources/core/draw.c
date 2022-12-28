@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:19:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 14:51:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:12:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	draw_block(t_game *game, void *block, int first, int second)
 
 	if (x < -BPX || y < -BPX || x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
 		return ;
+	//ft_printf("%d %d\n", x, y);
 	mlx_put_image_to_window(game->mlx, game->window, block, first, second);
 }
 
@@ -34,13 +35,13 @@ void	draw_background(t_game *game)
 		first = 0;
 		while (first < game->map_size.first)
 		{
-			if (game->map[second][first] == '1')
-				draw_block(game, game->image[OTHER][WALL], first, second);
+			if (game->map[second][first] == CHAR_WALL)
+				draw_block(game, game->image[OTHER][WALL_IDX], first, second);
 			else
-				draw_block(game, game->image[OTHER][BLOCK], first, second);
-			if (game->map[second][first] == 'C')
+				draw_block(game, game->image[OTHER][BLOCK_IDX], first, second);
+			if (game->map[second][first] == CHAR_COLLECTABLE)
 				draw_block(game, get_collectable_image(game), first, second);
-			else if (game->map[second][first] == 'E')
+			else if (game->map[second][first] == CHAR_EXIT)
 				draw_block(game, get_gate_image(game), first, second);
 			++first;
 		}

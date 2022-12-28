@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:04:04 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:08:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	get_right_dist(t_player *p, char *map[])
 	const int	first = p->position.first + BPX;
 	const int	second = (p->position.second + BPX) / BPX;
 
-	if (map[second][first / BPX] == WALL)
+	if (map[second][first / BPX] == CHAR_WALL)
 	{
-		if (map[second][(first - HPX) / BPX] == WALL)
+		if (map[second][(first - HPX) / BPX] == CHAR_WALL)
 			return (-EHPX);
 		return (ft_min(MPX, BPX - first % BPX));
 	}
@@ -31,9 +31,9 @@ int	get_left_dist(t_player *p, char *map[])
 	const int	first = p->position.first;
 	const int	second = (p->position.second + BPX) / BPX;
 
-	if (map[second][first / BPX] == WALL)
+	if (map[second][first / BPX] == CHAR_WALL)
 	{
-		if (map[second][(first + HPX) / BPX] == WALL)
+		if (map[second][(first + HPX) / BPX] == CHAR_WALL)
 			return (-EHPX);
 		return (ft_min(MPX, BPX - first % BPX));
 	}
@@ -45,8 +45,8 @@ int	get_down_dist(t_player *p, char *map[])
 	const int	first = p->position.first;
 	const int	second = p->position.second / BPX;
 
-	if (map[second + 1][first / BPX] == WALL ||
-		map[second + 2][(first - HPX) / BPX] == WALL)
+	if (map[second + 1][first / BPX] == CHAR_WALL ||
+		map[second + 2][(first - HPX) / BPX] == CHAR_WALL)
 		return (ft_min(GPX, BPX - second % BPX));
 	return (GPX);
 }
@@ -56,8 +56,8 @@ int	get_up_dist(t_player *p, char *map[])
 	const int	first = p->position.first;
 	const int	second = p->position.second / BPX;
 
-	if (map[second - 1][first / BPX] == WALL ||
-		map[second - 2][(first + HPX) / BPX] == WALL)
+	if (map[second - 1][first / BPX] == CHAR_WALL ||
+		map[second - 2][(first + HPX) / BPX] == CHAR_WALL)
 		return (ft_min(JPX, BPX - second % BPX));
 	return (JPX);
 }

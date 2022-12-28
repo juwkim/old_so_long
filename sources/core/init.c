@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 14:58:38 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 15:53:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	init_map(t_game *game, int argc, char *argv[])
 
 void	init_image(t_game *game)
 {
-	load_image(game, "./assets/life/life_", BLOCK_NUMBER, BLOCK);
+	load_image(game, "./assets/block/block_", BLOCK_NUMBER, BLOCK);
 	load_image(game, "./assets/cat/cat_", CAT_NUMBER, CAT);
 	load_image(game, "./assets/coin/coin_", COIN_NUMBER, COIN);
 	load_image(game, "./assets/gate/gate_", GATE_NUMBER, GATE);

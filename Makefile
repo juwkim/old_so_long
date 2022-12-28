@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/28 15:47:59 by juwkim           ###   ########.fr        #
+#    Updated: 2022/12/28 15:51:46 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,6 @@ CFLAGS			=	-Wall -Wextra -Werror -MMD -O3
 LDFLAGS 		=	-framework OpenGL -framework Appkit
 LIBMLX			=	libmlx.dylib
 LDLIBS 			=	lib/ft_printf.a lib/get_next_line.a lib/libft.a $(LIBMLX)
-
-all: $(NAME)
 
 # Define the directories
 SRC_DIR			=	sources
@@ -43,10 +41,10 @@ SRCS			=	$(addprefix $(SRC_DIR)/, $(SRCS_TOTAL))
 OBJS			=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(SRCS_TOTAL))
 DEPS			=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(SRCS_TOTAL))
 
--include $(DEPS)
 # Define the target
 NAME			=	so_long
 
+all: $(NAME)
 bonus: all
 # Define the target and dependencies
 $(NAME) : $(LDLIBS) $(OBJS)
@@ -114,3 +112,5 @@ BLUE			=	$'\x1b[34m
 PURPLE			=	$'\x1b[35m
 CYAN			=	$'\x1b[36m
 WHITE			=	$'\x1b[37m
+
+-include $(DEPS)

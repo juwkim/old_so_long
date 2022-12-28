@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:17:28 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:19:01 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PLAYER_H
 
 # include "main.h"
-# include "map/parsing.h"
+# include "core/parsing.h"
 
 /// @brief Structure for the player
 /*

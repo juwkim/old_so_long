@@ -6,18 +6,18 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:52:00 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 07:38:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:21:12 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "collectable/collectable.h"
+#include "core/collectable.h"
 
 int	*get_collectable_image(t_game *game)
 {
 	static int	idx;
 	static int	cnt;
 
-	cnt = (cnt + 1) % UPDATE_CYCLE;
+	cnt = (cnt + 1) % COLLECTABLE_UPDATE_CYCLE;
 	if (cnt == 0)
 		idx = (idx + 1) % COIN_NUMBER;
 	return (game->image[COIN][idx]);

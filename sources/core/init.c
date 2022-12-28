@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 04:29:15 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:15:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	init_game(t_game *game)
 	game->map_size.first = -1;
 	game->map_size.second = -1;
 	game->time_stamp = 0;
-	game->count[MOVE] = 0;
-	game->count[COLLECTABLE] = 0;
+	game->count[MOVE_IDX] = 0;
+	game->count[COLLECTABLE_IDX] = 0;
 	game->offset_window.first = 0;
 	game->offset_window.second = 0;
 	game->monsters = NULL;

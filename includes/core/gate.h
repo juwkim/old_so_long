@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   gate.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 15:23:13 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 05:43:28 by juwkim           ###   ########.fr       */
+/*   Created: 2022/12/28 01:16:10 by juwkim            #+#    #+#             */
+/*   Updated: 2022/12/28 13:20:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef GATE_H
+# define GATE_H
 
 # include "main.h"
+# include "core/hook.h"
+# include "player/player.h"
 
-enum {
-	EMPTY		= '0',
-	WALL		= '1',
-	PLAYER		= 'P',
-	EXIT		= 'E',
-	COLLECTABLE = 'C'
-};
+# define GATE_UPDATE_CYCLE 7
 
-int	open_map(t_game *game, char *path);
-int	read_map(t_game *game, int fd);
-int	check_map(t_game *game);
-int	check_side(t_game *game);
+int		*get_gate_image(t_game *game);
+void	gate_action(t_game *game, int first, int second);
+void	gate_collision(t_game *game);
 
 #endif

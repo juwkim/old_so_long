@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:19:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 02:57:36 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:14:52 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	draw_status(t_game *game)
 
 void	draw_movement(t_game *game)
 {
-	const char	*cnt_move = ft_itoa(game->count[MOVE]);
+	const char	*cnt_move = ft_itoa(game->count[MOVE_IDX]);
 
 	mlx_put_image_to_window(game->mlx, game->window, \
 		game->image[OTHER][PAW], STATUS_POS_FIRST + 20, STATUS_POS_SECOND + 7);

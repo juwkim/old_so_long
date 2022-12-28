@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:52:00 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:47:59 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:58:50 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	*get_collectable_image(t_game *game)
 	return (game->image[COIN][idx]);
 }
 
-void	collectable_action(t_game *game, int first, int second)
+void	collectable_action(t_game *game, int x, int y)
 {
-	if (game->map[first][second] == CHAR_COLLECTABLE)
+	if (game->map[x][y] == CHAR_COLLECTABLE)
 	{
-		game->map[first][second] = CHAR_EMPTY;
+		game->map[x][y] = CHAR_EMPTY;
 		--game->count[COLLECTABLE];
 	}
 }

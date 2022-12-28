@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:15:40 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:31:21 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 18:04:53 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ JPX : jump px
 HPX : hitbox px
 EHPX : extra hitbox
 */
+
+# define MAIN_UPDATE_CYCLE 15
 
 enum e_px {
 	MPX = 8,

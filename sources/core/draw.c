@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:19:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:22:05 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 19:39:03 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	draw_block(t_game *game, void *block, int first, int second)
 	const int	x = first * BPX + game->offset_window.first;
 	const int	y = second * BPX + game->offset_window.second;
 
-	//ft_printf("%d %d\n", x, y);
 	if (x < -BPX || y < -BPX || x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
 		return ;
 	mlx_put_image_to_window(game->mlx, game->window, block, x, y);
@@ -28,7 +27,7 @@ void	draw_background(t_game *game)
 	int	second;
 	int	first;
 
-	//mlx_clear_window(game->mlx, game->window);
+	mlx_clear_window(game->mlx, game->window);
 	second = 0;
 	while (second < game->map_size.second)
 	{

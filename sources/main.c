@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:25:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:50:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	game_loop(t_game *game)
 {
 	const long long	now = time_stamp();
 
-	if (now - game->time_stamp > 50)
+	if (now - game->time_stamp > MAIN_UPDATE_CYCLE)
 	{
 		game->time_stamp = now;
 		gate_collision(game);

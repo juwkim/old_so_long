@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:31:59 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 16:50:32 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 18:49:38 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	player_move_horizontal(t_player *p, char *map[])
 {
-	if (p->move_horizontal == MOVE_LEFT)
+	if (p->move_horizontal == MOVE_RIGHT)
 		p->position.first += get_right_dist(p, map);
-	else if (p->move_horizontal == MOVE_RIGHT)
+	else if (p->move_horizontal == MOVE_LEFT)
 		p->position.first -= get_left_dist(p, map);
 }
 

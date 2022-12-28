@@ -6,83 +6,67 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:42:52 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 17:09:10 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:54:48 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "monster/monster.h"
 
-// Analyzes the map and creates as many monsters as there are 'M' in the map
 void	set_monster(t_game *game)
 {
-	int	i;
-	int	j;
+	int	second;
+	int	first;
 	int	count;
 
-	i = 0;
-	while (i < game->height)
+	count = 0;
+	second = 0;
+	while (second < game->map_size.second)
 	{
-		j = 0;
-		while (j < game->width)
-		{
-			if (game->map[i][j] == '0')
+		first = 0;
+		while (first < game->map_size.first)
+		{	
+			if (game->map[second][first] == CHAR_EMPTY)
 			{
-				count++;
-				if (count == MOSTER_FREQUENCY)
-				{
-					new_monster(game, i, j);
-					count = 0;
-				}
+				count = (count + 1) % MOSTER_FREQUENCY;
+				if (count == 0)
+					new_monster(game, second, first);
 			}
-			j++;
+			++first;
 		}
-		i++;
+		++second;
 	}
 }
 
-void	new_monster(t_game *game, int i, int j)
+void	new_monster(t_game *game, int second, int first)
 {
-	t_monster *const	m = ft_calloc(sizeof(t_monster), 1);
+	t_monster *const	monster = ft_calloc(sizeof(t_monster), 1);
 
-	if (m == NULL)
+	if (monster == NULL)
 		exit(EXIT_FAILURE);
-	m->pp[0] = j * BPX;
-	m->pp[1] = i * BPX;
-	m->init_p[0] = m->pp[0];
-	m->init_p[1] = m->pp[1];
-	m->alive = 1;
-	m->direction = 1;
-	m->move = 1;
-	m->ai = 0;
-	m->td = 0;
+	monster->position.second = second * BLOCK_SIZE;
+	monster->position.first = first * BLOCK_SIZE;
+	monster->direction = MOVE_RIGHT;
 	if (game->monsters == NULL)
-		game->monsters = ft_lstnew(m);
+		game->monsters = ft_lstnew(monster);
 	else
-		ft_lstadd_front(&game->monsters, ft_lstnew(m));
+		ft_lstadd_front(&game->monsters, ft_lstnew(monster));
 }
 
-// Displays a monster block
-void	draw_monster(t_game *game)
+void	monster_update(t_game *game)
 {
 	t_list		*lst;
-	t_monster	*m;
+	t_monster	*monster;
 
 	lst = game->monsters;
 	while (lst)
 	{
-		m = (t_monster *)lst->content;
-		if (m->alive == 1 || m->td > 0)
-			draw_block(m->pp[0] + game->offset_window.first,
-				m->pp[1] + game->offset_window.second,
-				get_monster_sprite(m, game), game);
+		monster = (t_monster *) lst->content;
+		monster_move(monster, game);
+		monster_interaction(game);
+		mlx_put_image_to_window(game->mlx, game->window,
+			get_monster_image(monster, game),
+			monster->position.first + game->offset_window.first,
+			monster->position.second + game->offset_window.second);
 		lst = lst->next;
 	}
-}
-
-// Meta function for monster
-void	monster(t_game *game)
-{
-	monster_move(game);
-	monster_interaction(game);
-	draw_monster(game);
 }

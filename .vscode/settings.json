@@ -47,6 +47,8 @@
         "player_image2.h": "c",
         "error.h": "c",
         "__threading_support": "c",
-        "unordered_map": "c"
+        "unordered_map": "c",
+        "memory": "c",
+        "utility": "c"
     }
 }

@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   monster_interaction.c                              :+:      :+:    :+:   */
+/*   monster_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:42:05 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/23 13:42:09 by juwkim           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:54:19 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+
+static int	is_collision(char c, int type)
+{
+	if (type == 1)
+	{
+		if (c == '1')
+			return (1);
+		else
+			return (0);
+	}
+	else
+	{
+		if (c == '0')
+			return (1);
+		else if (c == '*')
+			return (1);
+		else if (c == 'C')
+			return (1);
+		else if (c == 'M')
+			return (1);
+		else if (c == 'E')
+			return (1);
+		else
+			return (0);
+	}
+}
 
 static void	monster_player_action(t_monster *m, t_game *game)
 {

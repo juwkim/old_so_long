@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:42:52 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 02:59:05 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:32:41 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	monster_update(t_game *game)
 		monster_collision(game, monster);
 		mlx_put_image_to_window(game->mlx, game->window,
 			get_monster_image(game, monster),
-			monster->position.first + game->offset_window.first,
-			monster->position.second + game->offset_window.second);
+			monster->position.first + game->offset.first,
+			monster->position.second + game->offset.second);
 		lst = lst->next;
 	}
 }

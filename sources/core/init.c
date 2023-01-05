@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 04:29:34 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 05:58:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	init_game(t_game *game)
 	game->time_stamp = 0;
 	game->count[MOVE] = 0;
 	game->count[COLLECTABLE] = 0;
-	game->offset_window.first = 0;
-	game->offset_window.second = 0;
+	game->offset.first = 0;
+	game->offset.second = 0;
 	game->monsters = NULL;
 }
 
@@ -58,14 +58,6 @@ int	init_player(t_player *player)
 	player->life_number = LIFE_NUMBER;
 	player->move_horizontal = MOVE_STAY;
 	player->move_vertical = MOVE_STAY;
-	player->position.first = 100;
-	player->position.second = 100;
 	player->last_move = MOVE_RIGHT;
 	return (0);
-}
-
-void	init_camera(t_game *game)
-{
-	game->offset_game.first = 0;
-	game->offset_game.second = 0;
 }

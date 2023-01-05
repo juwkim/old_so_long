@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 01:28:05 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 05:01:48 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ enum e_move {
 
 void	player_update(t_game *game);
 void	player_move_count_update(t_game *game);
-void	player_draw(t_game *game);
+void	player_draw(t_game *game, t_player *p);
 
 #endif

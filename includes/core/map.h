@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 15:23:13 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 04:08:44 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 05:51:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int	open_map(char *path);
 int	read_map(t_game *game, int fd);
 int	check_map(t_game *game);
 int	check_side(t_game *game);
-int	check_collectable(t_game *game);
 
 #endif

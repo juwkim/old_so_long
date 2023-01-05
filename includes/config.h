@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:15:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 03:48:43 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:32:14 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ typedef struct s_game {
 	int			count[2];
 	long long	time_stamp;
 	t_point		map_size;
-	t_point		offset_window;
-	t_point		offset_game;
+	t_point		offset;
 	t_list		*monsters;
 	t_player	player;
 	void		*image[6][54];

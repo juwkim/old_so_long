@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 04:27:46 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 05:23:07 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	player_update(t_game *game)
 	player_move_up(&game->player, game->map);
 	player_move_down(&game->player, game->map);
 	player_move_count_update(game);
-	player_draw(game);
+	player_draw(game, &game->player);
 }
 
 void	player_move_count_update(t_game *game)
@@ -30,27 +30,18 @@ void	player_move_count_update(t_game *game)
 }
 
 // Draw the player block on the screen
-void	player_draw(t_game *game)
+void	player_draw(t_game *game, t_player *p)
 {
-	const t_player	*p = &game->player;
-	const int		first = p->position.first + game->offset_window.first;
-	const int		second = p->position.second + game->offset_window.second;
-
-	if (p->position.first < 128)
-		game->offset_window.first = 0;
-	else if (first < 128)
-		game->offset_window.first = 128 - p->position.first;
-	else if (first > ((64 * 17) + 76))
-		game->offset_window.first = (64 * 17) + 76 - p->position.first;
-	if (p->position.second < (64 * 2))
-		game->offset_window.second = 0;
-	else if (second < (64 * 2))
-		game->offset_window.second = (64 * 2) - p->position.second;
-	else if (second > (64 * 8) + 48)
-		game->offset_window.second = (64 * 8) + 48 - p->position.second;
+	game->offset.first = \
+	ft_max(ft_min(game->offset.first, \
+	WINDOW_WIDTH - 2 * BLOCK_SIZE - p->position.first), \
+	BLOCK_SIZE - p->position.first);
+	game->offset.second = \
+	ft_max(ft_min(game->offset.second, \
+	WINDOW_HEIGHT - 2 * BLOCK_SIZE - p->position.second), \
+	BLOCK_SIZE - p->position.second);
 	mlx_put_image_to_window(game->mlx, game->window,
 		get_player_image(game, &game->player),
-		p->position.first + game->offset_window.first + \
-		game->offset_game.first, p->position.second + \
-		game->offset_window.second + game->offset_game.second);
+		p->position.first + game->offset.first,
+		p->position.second + game->offset.second);
 }

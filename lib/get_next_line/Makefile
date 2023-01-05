@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 05:18:16 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/23 12:10:01 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/06 08:13:22 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ ARFLAGS		= rsc
 SRCS		= $(wildcard *.c)
 OBJS		= $(SRCS:.c=.o)
 DEPS		= $(SRCS:.c=.d)
-INC_DIR		= -I ../../includes
+INC_DIR		= -I ../../mandatory/includes
 
 -include $(DEPS)
 

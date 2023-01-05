@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:42:52 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 21:54:48 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 02:59:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,26 @@ void	set_monster(t_game *game)
 
 void	new_monster(t_game *game, int second, int first)
 {
-	t_monster *const	monster = ft_calloc(sizeof(t_monster), 1);
+	t_monster *const	monster = malloc(sizeof(t_monster));
 
 	if (monster == NULL)
 		exit(EXIT_FAILURE);
 	monster->position.second = second * BLOCK_SIZE;
 	monster->position.first = first * BLOCK_SIZE;
-	monster->direction = MOVE_RIGHT;
+	monster->hited = 0;
+	monster->move = 0;
+	monster->image_update = 0;
+	if (first + second & 1)
+	{
+		monster->move_horizontal = MOVE_RIGHT;
+		monster->image_idx = 0;
+	}
+	else
+	{
+		monster->move_horizontal = MOVE_LEFT;
+		monster->image_idx = 11;
+	}
+	monster->move = MONSTER_MOVE_COUNT;
 	if (game->monsters == NULL)
 		game->monsters = ft_lstnew(monster);
 	else
@@ -61,10 +74,10 @@ void	monster_update(t_game *game)
 	while (lst)
 	{
 		monster = (t_monster *) lst->content;
-		monster_move(monster, game);
-		monster_interaction(game);
+		monster_move(monster, game->map);
+		monster_collision(game, monster);
 		mlx_put_image_to_window(game->mlx, game->window,
-			get_monster_image(monster, game),
+			get_monster_image(game, monster),
 			monster->position.first + game->offset_window.first,
 			monster->position.second + game->offset_window.second);
 		lst = lst->next;

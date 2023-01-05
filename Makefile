@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2022/12/28 15:51:46 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/06 03:25:35 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,10 @@ TOOLS_DIR		=	tools
 # Define the source files
 SRCS_MAIN		=	main.c
 SRCS_CORE		=	$(addprefix $(CORE_DIR)/, collectable.c draw.c gate.c hook.c image.c init.c map.c)
-SRCS_MONSTER	=	# $(addprefix $(MONSTER_DIR)/, monster.c monster_distance.c monster_position.c monster_interaction.c monster_movement.c monster_sprite.c)
-SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance.c player_image.c player_image2.c player_move.c player.c)
+SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster_action.c monster_image.c monster.c)
+SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance.c player_image.c player_move.c player.c)
 SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error.c point.c time_stamp.c)
 
-SRCS_MONSTER	=
 SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_MONSTER) $(SRCS_PLAYER) $(SRCS_TOOLS)
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRCS_TOTAL))

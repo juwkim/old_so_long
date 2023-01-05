@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_image2.h                                    :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 07:29:03 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:33:29 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/06 02:22:21 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/06 02:23:07 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_IMAGE2_H
-# define PLAYER_IMAGE2_H
-
-# include "config.h"
-# include "player/player.h"
-
-int	player_attack_sprite(t_player *player);
-int	player_walk_sprite(t_player *player);
-int	player_hurt_sprite(t_player *player);
-int	player_down_sprite(t_player *player);
-#endif
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return (-a);
+	else
+		return (a);
+}

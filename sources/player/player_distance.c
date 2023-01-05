@@ -6,18 +6,18 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:44:37 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 21:16:35 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 01:17:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player/player_distance.h"
 
-int	get_right_dist(t_player *p, char *map[])
+int	get_right_dist(t_point *p, char *map[])
 {
-	const int	y = p->position.first + BLOCK_SIZE;
-	const int	x1 = (p->position.second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
-	const int	x2 = (p->position.second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
-	const int	x3 = (p->position.second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
+	const int	y = p->first + BLOCK_SIZE;
+	const int	x1 = (p->second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	x2 = (p->second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	x3 = (p->second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = y;
@@ -28,12 +28,12 @@ int	get_right_dist(t_player *p, char *map[])
 	return (ft_min(HORIZONTAL_SPEED, cur - y));
 }
 
-int	get_left_dist(t_player *p, char *map[])
+int	get_left_dist(t_point *p, char *map[])
 {
-	const int	y = p->position.first;
-	const int	x1 = (p->position.second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
-	const int	x2 = (p->position.second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
-	const int	x3 = (p->position.second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
+	const int	y = p->first;
+	const int	x1 = (p->second + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	x2 = (p->second + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	x3 = (p->second + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = y;
@@ -44,12 +44,12 @@ int	get_left_dist(t_player *p, char *map[])
 	return (ft_min(HORIZONTAL_SPEED, y - cur));
 }
 
-int	get_down_dist(t_player *p, char *map[])
+int	get_down_dist(t_point *p, char *map[])
 {
-	const int	x = p->position.second + BLOCK_SIZE;
-	const int	y1 = (p->position.first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
-	const int	y2 = (p->position.first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
-	const int	y3 = (p->position.first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
+	const int	x = p->second + BLOCK_SIZE;
+	const int	y1 = (p->first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	y2 = (p->first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	y3 = (p->first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = x;
@@ -60,12 +60,12 @@ int	get_down_dist(t_player *p, char *map[])
 	return (ft_min(VERTICAL_SPEED, cur - x));
 }
 
-int	get_up_dist(t_player *p, char *map[])
+int	get_up_dist(t_point *p, char *map[])
 {
-	const int	x = p->position.second;
-	const int	y1 = (p->position.first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
-	const int	y2 = (p->position.first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
-	const int	y3 = (p->position.first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
+	const int	x = p->second;
+	const int	y1 = (p->first + BLOCK_SIZE * 1 / 6) / BLOCK_SIZE;
+	const int	y2 = (p->first + BLOCK_SIZE * 3 / 6) / BLOCK_SIZE;
+	const int	y3 = (p->first + BLOCK_SIZE * 5 / 6) / BLOCK_SIZE;
 	int			cur;
 
 	cur = x;

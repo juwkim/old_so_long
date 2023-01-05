@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:15:40 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 21:42:35 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 03:48:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ typedef struct s_player {
 	int		move_horizontal;
 	int		move_vertical;
 	int		jump;
-	int		attack;
-	int		tick_life;
 	int		life_number;
-	int		last_image;
+	int		last_move;
 }	t_player;
 
 typedef struct s_game {
@@ -65,5 +63,15 @@ typedef struct s_game {
 	t_player	player;
 	void		*image[6][54];
 }	t_game;
+
+typedef struct s_monster {
+	t_point	position;
+	t_point	last_position;
+	int		move_horizontal;
+	int		move;
+	int		hited;
+	int		image_update;
+	int		image_idx;
+}	t_monster;
 
 #endif

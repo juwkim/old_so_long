@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:19:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:59:53 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 02:59:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	draw_block(t_game *game, void *block, int first, int second)
 	const int	x = first * BLOCK_SIZE + game->offset_window.first;
 	const int	y = second * BLOCK_SIZE + game->offset_window.second;
 
-	if (x < -BLOCK_SIZE || y < -BLOCK_SIZE || x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
+	if (x < -BLOCK_SIZE || y < -BLOCK_SIZE || \
+		x > WINDOW_WIDTH || y > WINDOW_HEIGHT)
 		return ;
 	mlx_put_image_to_window(game->mlx, game->window, block, x, y);
 }

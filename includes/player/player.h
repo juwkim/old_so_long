@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 00:14:19 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 17:27:59 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 01:28:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ enum e_direction {
 };
 
 enum e_move {
-	MOVE_STAY,
 	MOVE_LEFT,
 	MOVE_RIGHT,
 	MOVE_UP,
-	MOVE_DOWN
+	MOVE_DOWN,
+	MOVE_STAY
 };
 
 void	player_update(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 03:06:29 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 15:35:50 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 00:59:13 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 # include "player/player.h"
 # include "player/player_distance.h"
 
+# define MOVE_COUNT 20
+
 void	player_move_horizontal(t_player *p, char *map[]);
-void	player_move_vertical(t_player *p, char *map[]);
 void	player_move_up(t_player *p, char *map[]);
 void	player_move_down(t_player *p, char *map[]);
 

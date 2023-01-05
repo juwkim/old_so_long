@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:45:33 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:28:59 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:27:46 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	player_update(t_game *game)
 	game->player.last_position.first = game->player.position.first;
 	game->player.last_position.second = game->player.position.second;
 	player_move_horizontal(&game->player, game->map);
-	player_move_vertical(&game->player, game->map);
 	player_move_up(&game->player, game->map);
 	player_move_down(&game->player, game->map);
 	player_move_count_update(game);
@@ -37,10 +36,10 @@ void	player_draw(t_game *game)
 	const int		first = p->position.first + game->offset_window.first;
 	const int		second = p->position.second + game->offset_window.second;
 
-	if (p->position.first < (64 * 2))
+	if (p->position.first < 128)
 		game->offset_window.first = 0;
 	else if (first < 128)
-		game->offset_window.first = (64 * 2) - p->position.first;
+		game->offset_window.first = 128 - p->position.first;
 	else if (first > ((64 * 17) + 76))
 		game->offset_window.first = (64 * 17) + 76 - p->position.first;
 	if (p->position.second < (64 * 2))
@@ -50,7 +49,7 @@ void	player_draw(t_game *game)
 	else if (second > (64 * 8) + 48)
 		game->offset_window.second = (64 * 8) + 48 - p->position.second;
 	mlx_put_image_to_window(game->mlx, game->window,
-		get_player_image(game),
+		get_player_image(game, &game->player),
 		p->position.first + game->offset_window.first + \
 		game->offset_game.first, p->position.second + \
 		game->offset_window.second + game->offset_game.second);

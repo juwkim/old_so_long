@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:43:53 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 21:00:10 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:13:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,14 @@ int	check_side(t_game *game)
 		game->map[game->map_size.second - 1][j] != CHAR_WALL)
 			return (0);
 	}
+	return (1);
+}
+
+int	check_collectable(t_game *game)
+{
+	// int	idx;
+	// int count;
+	(void) game;
+	
 	return (1);
 }

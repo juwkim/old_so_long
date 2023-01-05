@@ -6,80 +6,55 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 06:54:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 21:07:25 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:22:36 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player/player_image.h"
 
-int	*get_player_image(t_game *game)
+int	*get_player_image(t_game *game, t_player *player)
 {
 	static int	cnt;
 	static int	idx;
-	static int	attack_progress;
-	static int	hurt_progress;
 
-	if (game->player.attack == TRUE)
-		attack_progress = 5;
-	if (game->player.tick_life == 1)
-		hurt_progress = 5;
 	cnt = (cnt + 1) % UPDATE_CYCLE;
 	if (cnt == 0)
 	{
-		attack_progress = ft_max(attack_progress - 1, 0);
-		hurt_progress = ft_max(hurt_progress - 1, 0);
-		idx = player_sprite_pos(game, attack_progress, hurt_progress);
+		if (player->move_vertical == MOVE_UP)
+			idx = get_jump_image(player);
+		else if (player->move_horizontal != MOVE_STAY)
+			idx = get_walk_image(player);
+		else if (player->move_vertical == MOVE_DOWN \
+				&& get_down_dist(&player->position, game->map) > 0)
+			idx = get_down_image(player);
+		else
+			idx = get_stay_image(player);
 	}
 	return (game->image[CAT][idx]);
 }
 
-int	player_sprite_pos(t_game *game, int attack_progress, int hurt_progress)
-{
-	t_player	*player;
-
-	player = &game->player;
-	if (player->move_vertical == MOVE_UP)
-		return (player_jump_image(player));
-	else if (attack_progress)
-		return (player_attack_sprite(player));
-	else if (hurt_progress)
-		return (player_hurt_sprite(player));
-	else if (player->move_horizontal != MOVE_STAY)
-		return (player_walk_sprite(player));
-	else if (player->move_vertical == MOVE_DOWN \
-				&& get_down_dist(player, game->map) > 0)
-		return (player_down_sprite(player));
-	else if (player->move_vertical == MOVE_STAY \
-				&& get_down_dist(player, game->map) > 0)
-		return (player_failling_sprite(player));
-	else
-		return (player_stay_sprite(player));
-}
-
-int	player_jump_image(t_player *player)
+int	get_jump_image(t_player *player)
 {
 	int	idx;
 
 	if (player->move_horizontal == MOVE_LEFT)
 	{
-		if (player->jump > 1)
+		if (player->jump)
 			idx = 39;
 		else
 			idx = 40;
 	}
 	else
 	{
-		if (player->jump > 1)
+		if (player->jump)
 			idx = 12;
 		else
 			idx = 13;
 	}
-	player->last_image = 1;
 	return (idx);
 }
 
-// Return player failling sprite
-int	player_failling_sprite(t_player *player)
+int	get_down_image(t_player *player)
 {
 	int	idx;
 
@@ -87,32 +62,47 @@ int	player_failling_sprite(t_player *player)
 		idx = 44;
 	else
 		idx = 17;
-	player->last_image = 5;
 	return (idx);
 }
 
-// Return player stay sprite
-int	player_stay_sprite(t_player *player)
+int	get_stay_image(t_player *player)
+{
+	static int	idx;
+
+	if (player->last_move == MOVE_RIGHT)
+	{
+		if (0 <= idx && idx <= 6)
+			idx++;
+		else
+			idx = 0;
+	}
+	else
+	{
+		if (27 <= idx && idx <= 33)
+			idx++;
+		else
+			idx = 27;
+	}
+	return (idx);
+}
+
+int	get_walk_image(t_player *player)
 {
 	static int	idx;
 
 	if (player->move_horizontal == MOVE_LEFT)
 	{
-		if (player->last_image != 7)
-			idx = 27;
-		else if (26 < idx && idx < 34)
+		if (35 <= idx && idx <= 37)
 			idx++;
 		else
-			idx = 27;
+			idx = 35;
 	}
+	else
 	{
-		if (player->last_image != 7)
-			idx = 0;
-		else if (-1 < idx && idx < 7)
+		if (8 <= idx && idx <= 10)
 			idx++;
 		else
-			idx = 0;
+			idx = 8;
 	}
-	player->last_image = 7;
 	return (idx);
 }

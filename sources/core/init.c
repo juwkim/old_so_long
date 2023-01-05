@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:32 by juwkim            #+#    #+#             */
-/*   Updated: 2022/12/28 20:58:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 04:29:34 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	init_map(t_game *game, int argc, char *argv[])
 	fd = open_map(argv[1]);
 	if (fd <= 0)
 		error(1);
-	if (!read_map(game, fd) || !check_map(game) || !check_side(game))
+	if (!read_map(game, fd) || !check_map(game) || \
+		!check_side(game) || !check_collectable(game))
 		error(2);
 	return (1);
 }
@@ -54,11 +55,12 @@ void	init_image(t_game *game)
 int	init_player(t_player *player)
 {
 	player->jump = 0;
-	player->tick_life = 50;
 	player->life_number = LIFE_NUMBER;
-	player->attack = FALSE;
 	player->move_horizontal = MOVE_STAY;
 	player->move_vertical = MOVE_STAY;
+	player->position.first = 100;
+	player->position.second = 100;
+	player->last_move = MOVE_RIGHT;
 	return (0);
 }
 

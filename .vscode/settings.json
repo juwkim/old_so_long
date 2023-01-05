@@ -49,6 +49,22 @@
         "__threading_support": "c",
         "unordered_map": "c",
         "memory": "c",
-        "utility": "c"
+        "utility": "c",
+        "monster.h": "c",
+        "__functional_03": "c",
+        "__node_handle": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "iterator": "c",
+        "memory_resource": "c",
+        "functional": "c",
+        "mutex": "c",
+        "optional": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "monster_image.h": "c",
+        "monster_action.h": "c"
     }
 }

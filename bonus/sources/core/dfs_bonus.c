@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 05:50:55 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 08:00:21 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 11:18:20 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	free_visited(char **visited, int x)
 	idx = 0;
 	while (idx < x)
 		free(visited[idx++]);
+	free(visited);
 }
 
 int	dfs(char **map, char **visited, int x, int y)

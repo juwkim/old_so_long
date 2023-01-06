@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:41:37 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 08:01:22 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 11:23:32 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	main(int argc, char *argv[])
 
 int	game_loop(t_game *game)
 {
-	const long long	now = time_stamp();
+	static int		update;
 
-	if (now - game->time_stamp > MAIN_UPDATE_CYCLE)
+	update = (update + 1) % MAIN_UPDATE_CYCLE;
+	if (update == 0)
 	{
-		game->time_stamp = now;
 		gate_collision(game);
 		collectable_collision(game);
 		draw_background(game);

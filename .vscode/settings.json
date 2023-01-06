@@ -65,6 +65,7 @@
         "tuple": "c",
         "type_traits": "c",
         "monster_image.h": "c",
-        "monster_action.h": "c"
+        "monster_action.h": "c",
+        "main_bonus.h": "c"
     }
 }

@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 20:56:58 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/06 08:08:52 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/06 11:25:39 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ ifdef BONUS
 	SRCS_CORE		=	$(addprefix $(CORE_DIR)/, collectable_bonus.c dfs_bonus.c draw_bonus.c gate_bonus.c hook_bonus.c image_bonus.c init_bonus.c map_bonus.c)
 	SRCS_MONSTER	=	$(addprefix $(MONSTER_DIR)/, monster_action_bonus.c monster_image_bonus.c monster_bonus.c)
 	SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance_bonus.c player_image_bonus.c player_move_bonus.c player_bonus.c)
-	SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error_bonus.c point_bonus.c time_stamp_bonus.c)
+	SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error_bonus.c point_bonus.c)
 
 	SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_MONSTER) $(SRCS_PLAYER) $(SRCS_TOOLS)
 	SRCS_DIR		=	$(BONUS_DIR)/$(SRC_DIR)
@@ -47,7 +47,7 @@ else
 	SRCS_MAIN		=	main.c
 	SRCS_CORE		=	$(addprefix $(CORE_DIR)/, collectable.c dfs.c draw.c gate.c hook.c image.c init.c map.c)
 	SRCS_PLAYER		=	$(addprefix $(PLAYER_DIR)/, player_distance.c player_image.c player_move.c player.c)
-	SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error.c point.c time_stamp.c)
+	SRCS_TOOLS		=	$(addprefix $(TOOLS_DIR)/, error.c point.c)
 
 	SRCS_TOTAL		=	$(SRCS_MAIN) $(SRCS_CORE) $(SRCS_PLAYER) $(SRCS_TOOLS)
 	SRCS_DIR		=	$(MANDATORY_DIR)/$(SRC_DIR)

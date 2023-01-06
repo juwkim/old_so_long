@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:05:28 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 07:26:49 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/06 11:19:09 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "core/hook.h"
 # include "core/init.h"
 # include "player/player.h"
-# include "tools/time_stamp.h"
 # include "config.h"
 
 int	main(int argc, char *argv[]);

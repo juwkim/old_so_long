@@ -14,3 +14,6 @@ so_long_bonus
 
 # ignore DS_Store
 .DS_Store
+
+# ignore .vscode
+.vscode/

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 05:50:55 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/06 11:18:20 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/09 08:04:56 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	dfs(char **map, char **visited, int x, int y)
 	int			count;
 	int			idx;
 
-	count = map[x][y] == CHAR_COLLECTABLE;
+	count = ((map[x][y] == CHAR_COLLECTABLE) || (map[x][y] == CHAR_EXIT));
 	idx = -1;
 	while (++idx < 4)
 	{
@@ -72,5 +72,5 @@ int	check_collectable(t_game *game)
 	visited[i][j] = 1;
 	count = dfs(game->map, visited, i, j);
 	free_visited(visited, game->map_size.second);
-	return (count == game->count[COLLECTABLE]);
+	return (count + 1 == game->count[COLLECTABLE]);
 }

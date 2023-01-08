@@ -1,10 +1,9 @@
-# : comments
-
 # ignore all object files
 *.o
 
-# no .a files
+# ignore all library files
 *.a
+*.dylib
 
 # ignore all files in the build/ directory
 build/
@@ -12,3 +11,6 @@ build/
 # ignore all excutable
 so_long
 so_long_bonus
+
+# ignore DS_Store
+*.DS_Store

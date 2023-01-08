@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 05:50:55 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/09 08:04:56 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/09 08:27:30 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ int	check_collectable(t_game *game)
 	visited[i][j] = 1;
 	count = dfs(game->map, visited, i, j);
 	free_visited(visited, game->map_size.second);
-	return (count + 1 == game->count[COLLECTABLE]);
+	return (count == game->count[COLLECTABLE] + 1);
 }

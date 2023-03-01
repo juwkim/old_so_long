@@ -1,5 +1,6 @@
 .vscode
 build
+minilibx-linux/obj
 libft.a
 libmlx_Linux.a
 so_long

@@ -1,19 +1,5 @@
-# ignore all object files
-*.o
-
-# ignore all library files
-*.a
-*.dylib
-
-# ignore all files in the build/ directory
-build/
-
-# ignore all excutable
+.vscode
+build
+libft.a
+libmlx_Linux.a
 so_long
-so_long_bonus
-
-# ignore DS_Store
-*.DS_Store
-
-# ignore .vscode
-*.vscode
